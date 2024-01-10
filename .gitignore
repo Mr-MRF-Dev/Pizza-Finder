@@ -1,0 +1,5 @@
+# config folders
+.vscode
+
+# exe files
+*.exe
