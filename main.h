@@ -2,9 +2,10 @@
 #ifndef MAIN
 #define MAIN
 
+#include<conio.h>
 #include <iostream>
 using namespace std;
 
-#include "addArea.h"
+#include "addHood.h"
 
 #endif
