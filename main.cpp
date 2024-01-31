@@ -25,12 +25,11 @@ int main() {
 
         if (x == "1" || x == "Add-N" || x == "add-n") {
             system("cls");
-            //cout << "1\n" << endl;
             Add_N();
         }
         else if (x == "2" || x == "Add-P" || x == "add-p") {
             system("cls");
-            cout << "2\n" << endl;
+            Add_P;
         }
         else if (x == "3" || x == "Add-Br" || x == "add-br") {
             system("cls");

@@ -14,7 +14,7 @@ void Add_N(){
 	cout << "enter the y of point two" << endl;
 	cin >> y2;
 	Area A(x1, y1, x2, y2, name);
-	cout << "successfully added "<< name <<"\n\npress any key to continue" << endl;
+	cout << "\nsuccessfully added "<< name <<"\n\npress any key to continue" << endl;
 	getch();
 	system("cls");
 }
