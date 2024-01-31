@@ -1,7 +1,8 @@
 #include "main.h"
 
 int main() {
-
+    int a;
+    char b;
     string x;
     while (1) {
         cout << "---------------------------------------------------------" << endl;
@@ -17,13 +18,15 @@ int main() {
         cout << "10) Avail-P : list of pizza shops in an area" << endl;
         cout << "11) Most-Brs : the main pizza shop with the most branches" << endl;
         cout << "12) Undo : undo some selected orders" << endl;
+        cout << " 0) Exit : quit the program" << endl;
         cout << "---------------------------------------------------------" << endl;
 
         cin >> x;
 
         if (x == "1" || x == "Add-N" || x == "add-n") {
             system("cls");
-            cout << "1\n" << endl;
+            //cout << "1\n" << endl;
+            Add_N();
         }
         else if (x == "2" || x == "Add-P" || x == "add-p") {
             system("cls");
@@ -31,7 +34,7 @@ int main() {
         }
         else if (x == "3" || x == "Add-Br" || x == "add-br") {
             system("cls");
-            cout << "\n" << endl;
+            cout << "3\n" << endl;
         }
         else if (x == "4" || x == "Del-P" || x == "del-p") {
             system("cls");
