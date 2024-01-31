@@ -11,6 +11,8 @@ class Point {
         Point(int x, int y);
         int getX();
         int getY();
+
+        bool operator==(Point tmp);
 };
 
 #endif
