@@ -16,9 +16,8 @@ class branchLinkedList {
     public:
         branchLinkedList(pizzaMainBranch main);
         bool addNewBranch(pizzaBranch* branch);
-
+        bool deleteBranch(string name);
 };
-
 
 // class pizzaDataBase {
 //     private:

@@ -32,3 +32,32 @@ bool branchLinkedList::addNewBranch(pizzaBranch* branch) {
 
     return true;
 }
+
+bool branchLinkedList::deleteBranch(string name) {
+
+    if (head_branch == NULL) {
+        return false;
+    }
+
+    if (head_branch->getName() == name) {
+        pizzaBranch* tmp = head_branch;
+        head_branch = head_branch->getNext();
+        delete tmp;
+        return true;
+    }
+
+    pizzaBranch* tmp = head_branch;
+    while (tmp != NULL) {
+
+        if (tmp->getName() == name) {
+            // delete node
+            tmp->getPrev()->setNext(tmp->getNext());
+            delete tmp;
+            return true;
+        }
+
+        tmp = tmp->getNext();
+    }
+
+    return false;
+}
