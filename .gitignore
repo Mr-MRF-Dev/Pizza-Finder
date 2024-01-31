@@ -1,5 +1,9 @@
 # config folders
 .vscode
+.vs
+x64
+
+pf*
 
 # exe files
 *.exe

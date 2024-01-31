@@ -1,6 +1,6 @@
 
-#ifndef ADDAREA
-#define ADDAREA
+#ifndef ADDHOOD
+#define ADDHOOD
 
 class test {
 public:
