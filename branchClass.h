@@ -25,12 +25,21 @@ class pizzaBranch {
         string name;
         Point point;
 
+        pizzaBranch* next;
+        pizzaBranch* prev;
+
     public:
         pizzaBranch(string name, string main_name, int x, int y);
 
         string getMainName();
         string getName();
         Point getPoint();
+
+        void setNext(pizzaBranch* next);
+        void setPrev(pizzaBranch* prev);
+
+        pizzaBranch* getNext();
+        pizzaBranch* getPrev();
 };
 
 #endif
