@@ -29,7 +29,7 @@ int main() {
         }
         else if (x == "2" || x == "Add-P" || x == "add-p") {
             system("cls");
-            Add_P;
+            Add_P();
         }
         else if (x == "3" || x == "Add-Br" || x == "add-br") {
             system("cls");

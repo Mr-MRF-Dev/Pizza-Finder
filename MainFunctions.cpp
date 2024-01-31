@@ -5,7 +5,7 @@ void Add_N(){
 	string name;
 	cout << "please enter the name of the area" << endl;
 	cin >> name;
-	cout << "entering  the 2 points of the area\nplease enter the x of point one" << endl;
+	cout << "entering the 2 points of the area\nplease enter the x of point one" << endl;
 	cin >> x1;
 	cout << "enter the y of point one" << endl;
 	cin >> y1;
@@ -19,10 +19,34 @@ void Add_N(){
 	system("cls");
 }
 void Add_P(){
-	
+	int x1, y1;
+	string name;
+	cout << "please enter the name of the Pizza shop" << endl;
+	cin >> name;
+	cout << "entering the location of the shop\nplease enter the x" << endl;
+	cin >> x1;
+	cout << "enter the y" << endl;
+	cin >> y1;
+
+	cout << "\nsuccessfully added the pizza shop: " << name << "\n\npress any key to continue" << endl;
+	getch();
+	system("cls");
 }
 void Add_Br(){
-	
+	int x1, y1;
+	string name, mainName;
+	cout << "please enter the name of the branch Pizza shop" << endl;
+	cin >> name;
+	cout << "entering the location of the shop\nplease enter the x" << endl;
+	cin >> x1;
+	cout << "enter the y" << endl;
+	cin >> y1;
+	cout << "enter the name of the main Pizza shop" << endl;
+	cin >> mainName;
+
+	cout << "\nsuccessfully added the branch pizza shop: " << name << "\nmain shop is: " << mainName << "\n\npress any key to continue" << endl;
+	getch();
+	system("cls");
 }
 void Del_P(){
 	
