@@ -1,6 +1,6 @@
 #include "MainFunctions.h"
 
-void Add_N(AreaList l){
+void Add_N(AreaList* l){
 	int x1, x2, y1, y2;
 	string name;
 	cout << "please enter the name of the area" << endl;
@@ -14,13 +14,13 @@ void Add_N(AreaList l){
 	cout << "enter the y of point two" << endl;
 	cin >> y2;
 	Area temp(x1, y1, x2, y2, name);
-	if (l.addArea(temp)) {
+	if (l->addArea(temp)) {
 		cout << "\nsuccessfully added: " << name << "\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't add the area: " << name << " this area already exist\n\npress any key to continue" << endl;
+		cout << "\ncouldn't add the area: " << name << ", this area already exist\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
@@ -46,7 +46,7 @@ void Add_P(pizzaDataBase* db){
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't add the main pizza shop: " << name << "a pizza shop with this name already exist\n\npress any key to continue" << endl;
+		cout << "\ncouldn't add the main pizza shop: " << name << ", a pizza shop with this name already exist\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
@@ -75,7 +75,7 @@ void Add_Br(pizzaDataBase* db){
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't add the branch pizza shop: " << name << "\nmain shop is: " << mainName << "here exist a pizza shop already\n\npress any key to continue" << endl;
+		cout << "\ncouldn't add the branch pizza shop: " << name << ", here exist a pizza shop already\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}

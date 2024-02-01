@@ -9,7 +9,7 @@ using namespace std;
 #include "branchClass.h"
 #include "dataStructure.h"
 
-void Add_N(AreaList l);
+void Add_N(AreaList* l);
 void Add_P(pizzaDataBase* db);
 void Add_Br(pizzaDataBase* db);
 void Del_Br(pizzaDataBase* db);
