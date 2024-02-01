@@ -65,7 +65,8 @@ bool branchLinkedList::deleteBranch(string name) {
 string branchLinkedList::getMainName() { return main.getName(); }
 
 // pizzaDataBase functions
-pizzaDataBase::pizzaDataBase(int capacity = 10) {
+pizzaDataBase::pizzaDataBase(int capacity) {
+    this->capacity = capacity;
     all_main = new branchLinkedList*[capacity];
     //* ¯\_(ツ)_/¯
     // for (int i = 0; i < capacity; i++) {
