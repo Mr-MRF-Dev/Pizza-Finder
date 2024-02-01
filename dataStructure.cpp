@@ -33,23 +33,23 @@ bool branchLinkedList::addNewBranch(pizzaBranch* branch) {
     return true;
 }
 
-bool branchLinkedList::deleteBranch(string name) {
+bool branchLinkedList::deleteBranch(Point l) {
 
     if (head_branch == NULL) {
         return false;
     }
 
-    if (head_branch->getName() == name) {
-        pizzaBranch* tmp = head_branch;
+    pizzaBranch* tmp = head_branch;
+    if (head_branch->getPoint() == l) {
+        // delete head
         head_branch = head_branch->getNext();
         delete tmp;
         return true;
     }
 
-    pizzaBranch* tmp = head_branch;
     while (tmp != NULL) {
 
-        if (tmp->getName() == name) {
+        if (tmp->getPoint() == l) {
             // delete node
             tmp->getPrev()->setNext(tmp->getNext());
             delete tmp;
@@ -173,6 +173,15 @@ bool pizzaDataBase::addNewBranch(pizzaBranch* pb) {
     branchLinkedList* branch = findBranch(main_name);
 
     if (branch) return branch->addNewBranch(pb);
+
+    return false;
+}
+
+bool pizzaDataBase::delBranch(Point l) {
+
+    for (int i = 0; i < capacity; i++) {
+        if (all_main[i] && all_main[i]->deleteBranch(l)) return true;
+    }
 
     return false;
 }
