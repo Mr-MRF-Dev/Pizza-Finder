@@ -5,7 +5,7 @@ void Add_N(AreaList* l){
 	string name;
 	cout << "please enter the name of the area" << endl;
 	cin >> name;
-	cout << "entering the 2 points of the area\nplease enter the x of point one" << endl;
+	cout << "entering the 2 points of the area\n\nplease enter the x of point one" << endl;
 	cin >> x1;
 	cout << "enter the y of point one" << endl;
 	cin >> y1;
@@ -30,7 +30,7 @@ void Add_P(pizzaDataBase* db){
 	string name;
 	cout << "please enter the name of the Pizza shop" << endl;
 	cin >> name;
-	cout << "entering the location of the shop\nplease enter the x" << endl;
+	cout << "entering the location of the shop\n\nplease enter the x" << endl;
 	cin >> x1;
 	cout << "enter the y" << endl;
 	cin >> y1;
@@ -59,7 +59,7 @@ void Add_Br(pizzaDataBase* db){
 	cin >> name;
 	cout << "enter the name of the main Pizza shop" << endl;
 	cin >> mainName;
-	cout << "entering the location of the shop\nplease enter the x" << endl;
+	cout << "entering the location of the shop\n\nplease enter the x" << endl;
 	cin >> x1;
 	cout << "enter the y" << endl;
 	cin >> y1;
@@ -81,7 +81,22 @@ void Add_Br(pizzaDataBase* db){
 	}
 }
 void Del_Br(pizzaDataBase* db){
-	
+	int x1, y1;
+	cout << "entering the location of the shop that you want to delete\n\nplease enter the x" << endl;
+	cin >> x1;
+	cout << "enter the y" << endl;
+	cin >> y1;
+	Point temp(x1, y1);
+	if (db->delBranch(temp)) {
+		cout << "\nsuccessfully deleted the pizza shop in the location\n\npress any key to continue" << endl;
+		getch();
+		system("cls");
+	}
+	else {
+		cout << "\ncouldn't deleted any pizza shop in this location\n\npress any key to continue" << endl;
+		getch();
+		system("cls");
+	}
 }
 void List_P(){
 	
