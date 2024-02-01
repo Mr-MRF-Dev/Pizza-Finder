@@ -32,7 +32,7 @@ void Add_P(){
 	cout<<"here exist a pizza shop already, please try again"}
 	*/
 
-	pizzaMainBranch temp(name, x1, y1);
+	pizzaMainBranch* temp = new pizzaMainBranch(name, x1, y1);
 	//add to main_list
 	cout << "\nsuccessfully added the pizza shop: " << name << "\n\npress any key to continue" << endl;
 	getch();
@@ -54,7 +54,7 @@ void Add_Br(){
 	cout<<"here exist a pizza shop already, please try again"}
 	*/
 
-	pizzaBranch temp(name, mainName, x1, y1);
+	pizzaBranch* temp = new pizzaBranch(name, mainName, x1, y1);
 	//add to br_list
 	cout << "\nsuccessfully added the branch pizza shop: " << name << "\nmain shop is: " << mainName << "\n\npress any key to continue" << endl;
 	getch();
