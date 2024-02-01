@@ -32,7 +32,7 @@ class pizzaDataBase {
         branchLinkedList* findBranch(string name);
 
     public:
-        pizzaDataBase(int);
+        pizzaDataBase(int capacity = 10);
         bool addNewMainBranch(pizzaMainBranch* pb);
         bool addNewBranch(pizzaBranch* pb);
 };
