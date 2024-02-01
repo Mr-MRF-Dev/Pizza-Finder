@@ -29,10 +29,12 @@ class pizzaDataBase {
 
         // int hash(string name, int i);
         int hash(string name);
+        branchLinkedList* findBranch(string name);
 
     public:
         pizzaDataBase(int);
-        bool addNewMainBranch(pizzaMainBranch pb);
+        bool addNewMainBranch(pizzaMainBranch* pb);
+        bool addNewBranch(pizzaBranch* pb);
 };
 
 #endif

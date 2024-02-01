@@ -74,7 +74,7 @@ pizzaDataBase::pizzaDataBase(int capacity = 10) {
     count = 0;
 }
 
-bool pizzaDataBase::addNewMainBranch(pizzaMainBranch pb) {
+bool pizzaDataBase::addNewMainBranch(pizzaMainBranch* pb) {
 
     if (count == capacity) {
         // malloc new space
@@ -107,12 +107,17 @@ bool pizzaDataBase::addNewMainBranch(pizzaMainBranch pb) {
     }
 
     // add new MAIN Branch
-    branchLinkedList* new_main = new branchLinkedList(pb);
+    branchLinkedList* new_main = new branchLinkedList(*pb);
 
     // where add the main branch???
     // using hash function
-    int index = hash(pb.getName());
+    int index = hash(pb->getName());
     while (all_main[index] != NULL) {
+        if (all_main[index]->getMainName() == new_main->getMainName()) {
+            delete new_main;
+            return false;
+        }
+
         index++;
         if (index == capacity) {
             index = 0;
@@ -141,6 +146,34 @@ int pizzaDataBase::hash(string name) {
     }
 
     return final % capacity;
+}
+
+branchLinkedList* pizzaDataBase::findBranch(string name) {
+
+    int first_index = hash(name);
+    int sec_index = first_index;
+
+    do {
+
+        if (all_main[sec_index] && all_main[sec_index]->getMainName() == name)
+            return all_main[sec_index];
+
+        sec_index++;
+        if (sec_index == capacity) sec_index = 0;
+
+    } while ((sec_index != first_index));
+
+    return NULL;
+}
+
+bool pizzaDataBase::addNewBranch(pizzaBranch* pb) {
+
+    string main_name = pb->getMainName();
+    branchLinkedList* branch = findBranch(main_name);
+
+    if (branch) return branch->addNewBranch(pb);
+
+    return false;
 }
 
 // int pizzaDataBase::hash(string name, int i) {
