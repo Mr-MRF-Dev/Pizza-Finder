@@ -17,20 +17,24 @@ class branchLinkedList {
         branchLinkedList(pizzaMainBranch main);
         bool addNewBranch(pizzaBranch* branch);
         bool deleteBranch(string name);
+
+        string getMainName();
 };
 
-// class pizzaDataBase {
-//     private:
-//         pizzaMainBranch* all_main;
-//         int count;
+class pizzaDataBase {
+    private:
+        branchLinkedList** all_main;
+        int count;
+        int capacity;
 
-//     public:
-//         pizzaDataBase(/* args */);
-//         ~pizzaDataBase();
-// };
+        // int hash(string name, int i);
+        int hash(string name);
+        branchLinkedList* findBranch(string name);
 
-// pizzaDataBase::pizzaDataBase(/* args */) {}
-
-// pizzaDataBase::~pizzaDataBase() {}
+    public:
+        pizzaDataBase(int);
+        bool addNewMainBranch(pizzaMainBranch* pb);
+        bool addNewBranch(pizzaBranch* pb);
+};
 
 #endif
