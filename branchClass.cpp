@@ -6,6 +6,10 @@ pizzaMainBranch::pizzaMainBranch(string name, int x, int y) : point(x, y) {
     this->name = name;
 }
 
+pizzaMainBranch::pizzaMainBranch(pizzaMainBranch& tmp) : point(tmp.point) {
+    name = tmp.name;
+}
+
 string pizzaMainBranch::getName() { return name; }
 
 Point pizzaMainBranch::getPoint() { return point; }

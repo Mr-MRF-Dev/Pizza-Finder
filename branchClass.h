@@ -14,6 +14,7 @@ class pizzaMainBranch {
 
     public:
         pizzaMainBranch(string name, int x, int y);
+        pizzaMainBranch(pizzaMainBranch& tmp);
 
         string getName();
         Point getPoint();
