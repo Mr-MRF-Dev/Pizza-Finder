@@ -1,6 +1,6 @@
 #include "MainFunctions.h"
 
-void Add_N(){
+void Add_N(AreaList l){
 	int x1, x2, y1, y2;
 	string name;
 	cout << "please enter the name of the area" << endl;
@@ -13,10 +13,17 @@ void Add_N(){
 	cin >> x2;
 	cout << "enter the y of point two" << endl;
 	cin >> y2;
-	Area A(x1, y1, x2, y2, name);
-	cout << "\nsuccessfully added "<< name <<"\n\npress any key to continue" << endl;
-	getch();
-	system("cls");
+	Area temp(x1, y1, x2, y2, name);
+	if (l.addArea(temp)) {
+		cout << "\nsuccessfully added: " << name << "\n\npress any key to continue" << endl;
+		getch();
+		system("cls");
+	}
+	else {
+		cout << "\ncouldn't add the area: " << name << " this area already exist\n\npress any key to continue" << endl;
+		getch();
+		system("cls");
+	}
 }
 void Add_P(pizzaDataBase* db){
 	int x1, y1;

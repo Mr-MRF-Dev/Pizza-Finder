@@ -4,7 +4,7 @@ int main() {
 
     // create a db for Branchs
     pizzaDataBase *db = new pizzaDataBase;
-
+    AreaList* l = new AreaList;
     int a;
     char b;
     string x;
@@ -34,7 +34,7 @@ int main() {
 
         if (x == "1" || x == "Add-N" || x == "add-n") {
             system("cls");
-            Add_N();
+            Add_N(l);
         } else if (x == "2" || x == "Add-P" || x == "add-p") {
             system("cls");
             Add_P(db);
