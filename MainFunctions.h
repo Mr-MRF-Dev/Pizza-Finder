@@ -6,6 +6,7 @@
 #include<conio.h>
 using namespace std;
 #include "Area.h"
+#include "branchClass.h"
 
 void Add_N();
 void Add_P();

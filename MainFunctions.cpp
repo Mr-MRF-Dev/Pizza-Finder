@@ -28,6 +28,12 @@ void Add_P(){
 	cout << "enter the y" << endl;
 	cin >> y1;
 
+	/*if (checkPlace) {
+	cout<<"here exist a pizza shop already, please try again"}
+	*/
+
+	pizzaMainBranch temp(name, x1, y1);
+	//add to main_list
 	cout << "\nsuccessfully added the pizza shop: " << name << "\n\npress any key to continue" << endl;
 	getch();
 	system("cls");
@@ -37,13 +43,19 @@ void Add_Br(){
 	string name, mainName;
 	cout << "please enter the name of the branch Pizza shop" << endl;
 	cin >> name;
+	cout << "enter the name of the main Pizza shop" << endl;
+	cin >> mainName;
 	cout << "entering the location of the shop\nplease enter the x" << endl;
 	cin >> x1;
 	cout << "enter the y" << endl;
 	cin >> y1;
-	cout << "enter the name of the main Pizza shop" << endl;
-	cin >> mainName;
 
+	/*if (checkPlace) {
+	cout<<"here exist a pizza shop already, please try again"}
+	*/
+
+	pizzaBranch temp(name, mainName, x1, y1);
+	//add to br_list
 	cout << "\nsuccessfully added the branch pizza shop: " << name << "\nmain shop is: " << mainName << "\n\npress any key to continue" << endl;
 	getch();
 	system("cls");
