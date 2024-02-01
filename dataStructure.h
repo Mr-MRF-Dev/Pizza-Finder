@@ -33,7 +33,7 @@ class pizzaDataBase {
 
     public:
         pizzaDataBase(int capacity = 10);
-        bool addNewMainBranch(pizzaMainBranch* pb);
+        bool addNewMainBranch(pizzaMainBranch pb);
         bool addNewBranch(pizzaBranch* pb);
         bool delBranch(Point l);
 };

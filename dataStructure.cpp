@@ -75,7 +75,7 @@ pizzaDataBase::pizzaDataBase(int capacity) {
     count = 0;
 }
 
-bool pizzaDataBase::addNewMainBranch(pizzaMainBranch* pb) {
+bool pizzaDataBase::addNewMainBranch(pizzaMainBranch pb) {
 
     if (count == capacity) {
         // malloc new space
@@ -108,11 +108,11 @@ bool pizzaDataBase::addNewMainBranch(pizzaMainBranch* pb) {
     }
 
     // add new MAIN Branch
-    branchLinkedList* new_main = new branchLinkedList(*pb);
+    branchLinkedList* new_main = new branchLinkedList(pb);
 
     // where add the main branch???
     // using hash function
-    int index = hash(pb->getName());
+    int index = hash(pb.getName());
     while (all_main[index] != NULL) {
         if (all_main[index]->getMainName() == new_main->getMainName()) {
             delete new_main;

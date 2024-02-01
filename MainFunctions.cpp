@@ -32,7 +32,7 @@ void Add_P(pizzaDataBase* db){
 	cout<<"here exist a pizza shop already, please try again"}
 	*/
 
-	pizzaMainBranch* temp = new pizzaMainBranch(name, x1, y1);
+	pizzaMainBranch temp(name, x1, y1);
 	db->addNewMainBranch(temp);
 
 	cout << "\nsuccessfully added the pizza shop: " << name << "\n\npress any key to continue" << endl;
