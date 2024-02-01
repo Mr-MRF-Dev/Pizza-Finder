@@ -9,7 +9,6 @@ using namespace std;
 
 #include "Area.h"
 #include "MainFunctions.h"
-#include "addHood.h"
 #include "dataStructure.h"
 
 #endif
