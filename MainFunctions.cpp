@@ -33,11 +33,17 @@ void Add_P(pizzaDataBase* db){
 	*/
 
 	pizzaMainBranch temp(name, x1, y1);
-	db->addNewMainBranch(temp);
+	if (db->addNewMainBranch(temp)) {
+		cout << "\nsuccessfully added the main pizza shop: " << name << "\n\npress any key to continue" << endl;
+		getch();
+		system("cls");
+	}
+	else {
+		cout << "\ncouldn't add the main pizza shop: " << name << "a pizza shop with this name already exist\n\npress any key to continue" << endl;
+		getch();
+		system("cls");
+	}
 
-	cout << "\nsuccessfully added the pizza shop: " << name << "\n\npress any key to continue" << endl;
-	getch();
-	system("cls");
 }
 void Add_Br(pizzaDataBase* db){
 	int x1, y1;
@@ -56,10 +62,16 @@ void Add_Br(pizzaDataBase* db){
 	*/
 
 	pizzaBranch* temp = new pizzaBranch(name, mainName, x1, y1);
-	db->addNewBranch(temp);
-	cout << "\nsuccessfully added the branch pizza shop: " << name << "\nmain shop is: " << mainName << "\n\npress any key to continue" << endl;
-	getch();
-	system("cls");
+	if (db->addNewBranch(temp)) {
+		cout << "\nsuccessfully added the branch pizza shop: " << name << "\nmain shop is: " << mainName << "\n\npress any key to continue" << endl;
+		getch();
+		system("cls");
+	}
+	else {
+		cout << "\ncouldn't add the branch pizza shop: " << name << "\nmain shop is: " << mainName << "here exist a pizza shop already\n\npress any key to continue" << endl;
+		getch();
+		system("cls");
+	}
 }
 void Del_Br(pizzaDataBase* db){
 	
