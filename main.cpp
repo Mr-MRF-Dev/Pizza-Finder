@@ -37,10 +37,10 @@ int main() {
             Add_N();
         } else if (x == "2" || x == "Add-P" || x == "add-p") {
             system("cls");
-            Add_P();
+            Add_P(db);
         } else if (x == "3" || x == "Add-Br" || x == "add-br") {
             system("cls");
-            cout << "3\n" << endl;
+            Add_Br(db);
         } else if (x == "4" || x == "Del-P" || x == "del-p") {
             system("cls");
             cout << "4\n" << endl;

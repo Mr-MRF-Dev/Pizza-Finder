@@ -18,7 +18,7 @@ void Add_N(){
 	getch();
 	system("cls");
 }
-void Add_P(){
+void Add_P(pizzaDataBase* db){
 	int x1, y1;
 	string name;
 	cout << "please enter the name of the Pizza shop" << endl;
@@ -33,12 +33,13 @@ void Add_P(){
 	*/
 
 	pizzaMainBranch* temp = new pizzaMainBranch(name, x1, y1);
-	//add to main_list
+	db->addNewMainBranch(temp);
+
 	cout << "\nsuccessfully added the pizza shop: " << name << "\n\npress any key to continue" << endl;
 	getch();
 	system("cls");
 }
-void Add_Br(){
+void Add_Br(pizzaDataBase* db){
 	int x1, y1;
 	string name, mainName;
 	cout << "please enter the name of the branch Pizza shop" << endl;
@@ -55,15 +56,12 @@ void Add_Br(){
 	*/
 
 	pizzaBranch* temp = new pizzaBranch(name, mainName, x1, y1);
-	//add to br_list
+	db->addNewBranch(temp);
 	cout << "\nsuccessfully added the branch pizza shop: " << name << "\nmain shop is: " << mainName << "\n\npress any key to continue" << endl;
 	getch();
 	system("cls");
 }
-void Del_P(){
-	
-}
-void Del_Br(){
+void Del_Br(pizzaDataBase* db){
 	
 }
 void List_P(){
