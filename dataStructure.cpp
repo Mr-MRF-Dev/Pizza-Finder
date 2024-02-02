@@ -66,13 +66,15 @@ bool branchLinkedList::deleteBranch(Point l) {
 string branchLinkedList::getMainName() { return main->getName(); }
 
 void branchLinkedList::print() {
-    cout << *main << endl;
-
+    int i = 0;
+    cout << "main: "<< *main << endl;
     pizzaBranch* tmp = head_branch;
     while (tmp) {
-        cout << *tmp << endl;
+        i++;
+        cout << "branch" << i << ": " << *tmp << endl;
         tmp = tmp->getNext();
     }
+    cout << "\ntotal branches: " << i << endl;
 }
 
 // pizzaDataBase functions
