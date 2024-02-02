@@ -3,20 +3,20 @@
 void mainMenu(pizzaDataBase* db, AreaList* l){
     string act;
     while(1){
-    cout << "---------------------------------------------------------"<< endl;
-    cout << " 1) Add-N : add a new Area" << endl;
-    cout << " 2) Add-P : add a new main Pizza shop" << endl;
-    cout << " 3) Add-Br : add a new branch to a main pizza shop" << endl;
-    cout << " 4) Del-Br : Delete a branch from a main Pizza shop" << endl;
-    cout << " 5) List-P : list of pizza shops in a hood" << endl;
-    cout << " 6) List-Brs : list of the branches of a main pizza shop"<< endl;
-    cout << " 7) Near-P : nearst pizza shop to a location" << endl;
-    cout << " 8) Near-Br : nearst selected pizza shop in a location"<< endl;
-    cout << " 9) Avail-P : list of pizza shops in an area" << endl;
-    cout << "10) Most-Brs : the main pizza shop with the most branches"<< endl;
-    cout << "11) Undo : undo some selected orders" << endl;
-    cout << " 0) Exit : quit the program" << endl;
-    cout << "---------------------------------------------------------"<< endl;
+    cout << Color_Yellow_Dark << "---------------------------------------------------------" << endl;
+    cout << Color_Yellow <<" 1)" << Color_Aqua << " Add-N " << Color_Yellow << ":" << Color_Reset << " add a new Area" << endl;
+    cout << Color_Yellow <<" 2)" << Color_Aqua << " Add-P " << Color_Yellow << ":" << Color_Reset << " add a new main Pizza shop" << endl;
+    cout << Color_Yellow <<" 3)" << Color_Aqua << " Add-Br " << Color_Yellow << ":" << Color_Reset << " add a new branch to a main pizza shop" << endl;
+    cout << Color_Yellow <<" 4)" << Color_Aqua << " Del-Br " << Color_Yellow << ":" << Color_Reset << " Delete a branch from a main Pizza shop" << endl;
+    cout << Color_Yellow <<" 5)" << Color_Aqua << " List-P " << Color_Yellow << ":" << Color_Reset << " list of pizza shops in a hood" << endl;
+    cout << Color_Yellow <<" 6)" << Color_Aqua << " List-Brs " << Color_Yellow << ":" << Color_Reset << " list of the branches of a main pizza shop"<< endl;
+    cout << Color_Yellow <<" 7)" << Color_Aqua << " Near-P " << Color_Yellow << ":" << Color_Reset << " nearst pizza shop to a location" << endl;
+    cout << Color_Yellow <<" 8)" << Color_Aqua << " Near-Br " << Color_Yellow << ":" << Color_Reset << " nearst selected pizza shop in a location"<< endl;
+    cout << Color_Yellow <<" 9)" << Color_Aqua << " Avail-P " << Color_Yellow << ":" << Color_Reset << " list of pizza shops in an area" << endl;
+    cout << Color_Yellow <<"10)" << Color_Aqua << " Most-Brs " << Color_Yellow << ":" << Color_Reset << " the main pizza shop with the most branches"<< endl;
+    cout << Color_Yellow <<"11)" << Color_Aqua << " Undo " << Color_Yellow << ":" << Color_Reset << " undo some selected orders" << endl;
+    cout << Color_Yellow <<" 0)" << Color_Aqua << " Exit " << Color_Yellow << ":" << Color_Reset << " quit the program" << endl;
+    cout << Color_Yellow_Dark << "---------------------------------------------------------" << Color_Reset << endl;
     cin >> act;
     if (act == "1" || act == "Add-N" || act == "add-n") {
             system("cls");
@@ -53,12 +53,13 @@ void mainMenu(pizzaDataBase* db, AreaList* l){
             cout << "12\n" << endl;
         } else if (act == "0" || act == "Exit" || act == "exit") {
             system("cls");
-            cout << "ended, press any key to close the program\n" << endl;
+            cout << "program ended, press any key to close the program\n" << endl;
             getch();
+            cout << Color_Reset << endl;
             break;
         } else {
             system("cls");
-            cout << "please enter a valid option\n" << endl;
+            cout << Color_Red << "please enter a valid option\n" << endl;
         }
     }
 }

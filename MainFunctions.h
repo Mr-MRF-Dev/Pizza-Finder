@@ -8,6 +8,7 @@ using namespace std;
 #include "Area.h"
 #include "branchClass.h"
 #include "dataStructure.h"
+#include "color.h"
 
 void Add_N(AreaList* l);
 void Add_P(pizzaDataBase* db);

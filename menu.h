@@ -7,6 +7,7 @@
 #include "MainFunctions.h"
 #include "Area.h"
 #include "dataStructure.h"
+#include "color.h"
 using namespace std;
 
 void mainMenu(pizzaDataBase *db, AreaList* l);
