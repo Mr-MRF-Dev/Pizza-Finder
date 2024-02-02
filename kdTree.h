@@ -29,10 +29,12 @@ class KDTree {
         treeNode* head;
 
         treeNode* helpInsert(treeNode* root, branch* node, int depth);
+        bool helpSearch(treeNode* root, branch* node, int depth);
 
     public:
         KDTree();
         bool insert(branch* node);
+        bool search(branch* node);
 };
 
 #endif

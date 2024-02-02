@@ -53,6 +53,36 @@ treeNode* KDTree::helpInsert(treeNode* root, branch* node, int depth) {
 }
 
 bool KDTree::insert(branch* node) {
+
+    if (search(node)) {
+
+        return false;
+    }
+
     head = helpInsert(head, node, 0);
     return true;
 }
+
+bool KDTree::helpSearch(treeNode* root, branch* node, int depth) {
+    if (root == NULL) return false;
+    if (root->getPoint() == node->getPoint()) return true;
+
+    int number_node, number_root;
+
+    if (depth % 2 == 0) {
+        number_node = node->getPoint().getX();
+        number_root = root->getPoint().getX();
+    }
+
+    else {
+        number_node = node->getPoint().getY();
+        number_root = root->getPoint().getY();
+    }
+
+    if (number_node < number_root)
+        return helpSearch(root->getLeft(), node, depth + 1);
+
+    return helpSearch(root->getRight(), node, depth + 1);
+}
+
+bool KDTree::search(branch* node) { return helpSearch(head, node, 0); }
