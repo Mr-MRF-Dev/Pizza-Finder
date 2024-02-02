@@ -1,16 +1,32 @@
 
 #include "branchClass.h"
 
+// branch functions
+branch::branch(string name, int x, int y) : point(x, y) { this->name = name; }
+
+branch::branch(string name, Point p) : point(p) { this->name = name; }
+
+Point branch::getPoint() { return point; }
+
+string branch::getName() { return name; }
+
+ostream& operator<<(ostream& os, branch& b) {
+
+    // output => "Name: xyz, Point: (x, y)"
+
+    string final = "Name: " + b.name;
+    final += ",  Point: " + b.point.getStr();
+
+    os << final;
+    return os;
+}
+
 // pizzaMainBranch functions
-pizzaMainBranch::pizzaMainBranch(string name, int x, int y) : point(x, y) {
-    this->name = name;
-}
+pizzaMainBranch::pizzaMainBranch(string name, int x, int y)
+    : branch(name, x, y) {}
 
-pizzaMainBranch::pizzaMainBranch(pizzaMainBranch& tmp) : point(tmp.point) {
-    name = tmp.name;
-}
-
-string pizzaMainBranch::getName() { return name; }
+pizzaMainBranch::pizzaMainBranch(pizzaMainBranch& tmp)
+    : branch(tmp.name, tmp.point) {}
 
 ostream& operator<<(ostream& os, pizzaMainBranch& pmb) {
 
@@ -23,23 +39,23 @@ ostream& operator<<(ostream& os, pizzaMainBranch& pmb) {
     return os;
 }
 
-Point pizzaMainBranch::getPoint() { return point; }
-
 // pizzaBranch functions
 pizzaBranch::pizzaBranch(string name, string main_name, int x, int y)
-    : point(x, y) {
+    : branch(name, x, y) {
     this->main_name = main_name;
-    this->name = name;
 
     this->next = NULL;
     this->prev = NULL;
 }
 
-string pizzaBranch::getName() { return name; }
+pizzaBranch::pizzaBranch(pizzaBranch& tmp) : branch(tmp.name, tmp.point) {
+    main_name = tmp.main_name;
+
+    next = tmp.next;
+    prev = tmp.prev;
+}
 
 string pizzaBranch::getMainName() { return main_name; }
-
-Point pizzaBranch::getPoint() { return point; }
 
 pizzaBranch* pizzaBranch::getNext() { return next; }
 pizzaBranch* pizzaBranch::getPrev() { return prev; }
