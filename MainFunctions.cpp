@@ -15,12 +15,12 @@ void Add_N(AreaList* l){
 	cin >> y2;
 	Area temp(x1, y1, x2, y2, name);
 	if (l->addArea(temp)) {
-		cout << "\nsuccessfully added: " << name << "\n\npress any key to continue" << endl;
+		cout << "\nsuccessfully added area: " << name << " (" << x1 << "," << y1 << ") (" << x2 << "," << y2 <<")\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't add the area: " << name << ", this area already exist\n\npress any key to continue" << endl;
+		cout << "\ncouldn't add the area: " << name << " (" << x1 << "," << y1 << ") (" << x2 << "," << y2 << "), this area already exist with this name or those points\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
@@ -41,12 +41,12 @@ void Add_P(pizzaDataBase* db){
 
 	pizzaMainBranch *temp = new pizzaMainBranch(name, x1, y1);
 	if (db->addNewMainBranch(temp)) {
-		cout << "\nsuccessfully added the main pizza shop: " << name << "\n\npress any key to continue" << endl;
+		cout << "\nsuccessfully added the main pizza shop: " << name << "location: (" << x1 << "," << y1 << ")\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't add the main pizza shop: " << name << ", a pizza shop with this name already exist\n\npress any key to continue" << endl;
+		cout << "\ncouldn't add the main pizza shop: " << name << "location: (" << x1 << "," << y1 << "), a pizza shop with this name already exist\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
@@ -70,12 +70,12 @@ void Add_Br(pizzaDataBase* db){
 
 	pizzaBranch* temp = new pizzaBranch(name, mainName, x1, y1);
 	if (db->addNewBranch(temp)) {
-		cout << "\nsuccessfully added the branch pizza shop: " << name << "\nmain shop is: " << mainName << "\n\npress any key to continue" << endl;
+		cout << "\nsuccessfully added the branch pizza shop: " << name << "location: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << "\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't add the branch pizza shop: " << name << ", here exist a pizza shop already\n\npress any key to continue" << endl;
+		cout << "\ncouldn't add the branch pizza shop: " << name << "location: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << "\nthere already exist a brach with the same name or there is no main shop with this name at all\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
@@ -93,7 +93,7 @@ void Del_Br(pizzaDataBase* db){
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't deleted any pizza shop in this location\n\npress any key to continue" << endl;
+		cout << "\ncouldn't delete the pizza shop in this location\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
