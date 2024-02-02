@@ -1,6 +1,6 @@
 #include "menu.h"
 
-void mainMenu(pizzaDataBase* db, AreaList* l, KDTree ap){
+void mainMenu(pizzaDataBase* db, AreaList* l, KDTree* ap){
     string act;
     while(1){
     cout << Color_Yellow_Dark << "---------------------------------------------------------" << endl;

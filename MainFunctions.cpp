@@ -26,7 +26,7 @@ void Add_N(AreaList* l){
 	}
 }
 
-void Add_P(pizzaDataBase* db, KDTree ap){
+void Add_P(pizzaDataBase* db, KDTree* ap){
 	int x1, y1;
 	string name;
 	cout << Color_Orange << "please enter the name of the Pizza shop" << Color_Reset << endl;
@@ -37,7 +37,7 @@ void Add_P(pizzaDataBase* db, KDTree ap){
 	cin >> y1;
 	pizzaMainBranch *temp = new pizzaMainBranch(name, x1, y1);
 
-	if (!ap.insert(temp)) {
+	if (!ap->insert(temp)) {
 	cout << Color_Red << "here exist a pizza shop already, couldn't add the pizza shop" << Color_Yellow << "\n\npress any key to continue" << endl;
 	delete temp;
 	}
@@ -55,7 +55,7 @@ void Add_P(pizzaDataBase* db, KDTree ap){
 
 }
 
-void Add_Br(pizzaDataBase* db, KDTree ap){
+void Add_Br(pizzaDataBase* db, KDTree *ap){
 	int x1, y1;
 	string name, mainName;
 	cout << Color_Orange << "please enter the name of the branch Pizza shop" << Color_Reset << endl;
@@ -68,7 +68,7 @@ void Add_Br(pizzaDataBase* db, KDTree ap){
 	cin >> y1;
 	pizzaBranch* temp = new pizzaBranch(name, mainName, x1, y1);
 
-	if (!ap.insert(temp)) {
+	if (!ap->insert(temp)) {
 	cout << Color_Red << "here exist a pizza shop already, couldn't add the pizza shop" << Color_Yellow << "\n\npress any key to continue" << endl;
 	delete temp;
 	}
