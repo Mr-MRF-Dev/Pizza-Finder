@@ -9,25 +9,20 @@ int main() {
     char b;
     string x;
     while (1) {
-        cout << "---------------------------------------------------------"
-             << endl;
+        cout << "---------------------------------------------------------"<< endl;
         cout << " 1) Add-N : add a new hood" << endl;
         cout << " 2) Add-P : add a new main Pizza shop" << endl;
         cout << " 3) Add-Br : add a new branch to a main pizza shop" << endl;
         cout << " 4) Del-Br : Delete a branch from a main Pizza shop" << endl;
         cout << " 5) List-P : list of pizza shops in a hood" << endl;
-        cout << " 6) List-Brs : list of the branches of a main pizza shop"
-             << endl;
+        cout << " 6) List-Brs : list of the branches of a main pizza shop"<< endl;
         cout << " 7) Near-P : nearst pizza shop to a location" << endl;
-        cout << " 8) Near-Br : nearst selected pizza shop in a location"
-             << endl;
+        cout << " 8) Near-Br : nearst selected pizza shop in a location"<< endl;
         cout << " 9) Avail-P : list of pizza shops in an area" << endl;
-        cout << "10) Most-Brs : the main pizza shop with the most branches"
-             << endl;
+        cout << "10) Most-Brs : the main pizza shop with the most branches"<< endl;
         cout << "11) Undo : undo some selected orders" << endl;
         cout << " 0) Exit : quit the program" << endl;
-        cout << "---------------------------------------------------------"
-             << endl;
+        cout << "---------------------------------------------------------"<< endl;
 
         cin >> x;
 
