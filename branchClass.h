@@ -11,6 +11,11 @@ class branch {
     protected:
         string name;
         Point point;
+        int type;
+
+        // -1 => nothing
+        //  0 => pizza main branch
+        //  1 => pizza branch
 
     public:
         friend ostream& operator<<(ostream& os, branch& b);
@@ -19,6 +24,7 @@ class branch {
         branch(string name, Point p);
         string getName();
         Point getPoint();
+        int getType();
 };
 
 ostream& operator<<(ostream& os, branch& b);
@@ -45,7 +51,7 @@ class pizzaBranch : public branch {
         friend ostream& operator<<(ostream& os, pizzaBranch& pb);
 
         pizzaBranch(string name, string main_name, int x, int y);
-        pizzaBranch(pizzaBranch &tmp);
+        pizzaBranch(pizzaBranch& tmp);
 
         string getMainName();
 
