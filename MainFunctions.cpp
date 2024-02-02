@@ -70,7 +70,7 @@ void Add_Br(pizzaDataBase* db){
 
 	pizzaBranch* temp = new pizzaBranch(name, mainName, x1, y1);
 	if (db->addNewBranch(temp)) {
-		cout << "\nsuccessfully added the branch pizza shop: " << name << "\nlocation: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << "\n\npress any key to continue" << endl;
+		cout << "\nsuccessfully added the branch pizza shop: " << name << "\n  location: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << "\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}

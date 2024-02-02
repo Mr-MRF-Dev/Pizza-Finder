@@ -67,11 +67,12 @@ string branchLinkedList::getMainName() { return main->getName(); }
 
 void branchLinkedList::print() {
     int i = 0;
-    cout << "main: "<< *main << endl;
+    cout << "\nmain "<< *main << endl;
     pizzaBranch* tmp = head_branch;
+    cout << "\n";
     while (tmp) {
         i++;
-        cout << "branch" << i << ": " << *tmp << endl;
+        cout << "branch " << i << " " << *tmp << endl;
         tmp = tmp->getNext();
     }
     cout << "\ntotal branches: " << i << endl;
