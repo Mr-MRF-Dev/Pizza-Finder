@@ -98,11 +98,29 @@ void Del_Br(pizzaDataBase* db){
 		system("cls");
 	}
 }
-void List_P(){
-	
+void List_P(pizzaDataBase* db){
+	string Aname;
+	cout << "please enter the name of the area" << endl;
+	cin >> Aname;
+	/*
+	search function here
+	*/
+    cout <<"\n\npress any key to continue" << endl;
+	getch();
+	system("cls");
 }
-void List_Brs(){
-	
+void List_Brs(pizzaDataBase* db){
+	string name;
+	cout << "please enter the name of the main pizza brach" << endl;
+	cin >> name;
+	/*
+	search function here
+	if(db->printBranch(name))
+	else cout << "there doesnt exit any main pizza branch with this name";
+	*/
+    cout <<"\n\npress any key to continue" << endl;
+	getch();
+	system("cls");
 }
 void Near_P(){
 	
