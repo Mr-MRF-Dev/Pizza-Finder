@@ -13,12 +13,16 @@ class pizzaMainBranch {
         Point point;
 
     public:
+        friend ostream& operator<<(ostream& os, pizzaMainBranch& pmb);
+
         pizzaMainBranch(string name, int x, int y);
         pizzaMainBranch(pizzaMainBranch& tmp);
 
         string getName();
         Point getPoint();
 };
+
+ostream& operator<<(ostream& os, pizzaMainBranch& pmb);
 
 class pizzaBranch {
     private:
@@ -30,6 +34,8 @@ class pizzaBranch {
         pizzaBranch* prev;
 
     public:
+        friend ostream& operator<<(ostream& os, pizzaBranch& pb);
+
         pizzaBranch(string name, string main_name, int x, int y);
 
         string getMainName();
@@ -42,5 +48,7 @@ class pizzaBranch {
         pizzaBranch* getNext();
         pizzaBranch* getPrev();
 };
+
+ostream& operator<<(ostream& os, pizzaBranch& pb);
 
 #endif
