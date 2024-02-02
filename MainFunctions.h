@@ -14,7 +14,7 @@ void Add_P(pizzaDataBase* db);
 void Add_Br(pizzaDataBase* db);
 void Del_Br(pizzaDataBase* db);
 void List_P();
-void List_Brs();
+void List_Brs(pizzaDataBase* db);
 void Near_P();
 void Near_Br();
 void Avail_P();
