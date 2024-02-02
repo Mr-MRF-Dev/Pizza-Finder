@@ -5,8 +5,8 @@ int main() {
     // create a db for Branchs
     pizzaDataBase *db = new pizzaDataBase;
     AreaList* l = new AreaList;
-
-    mainMenu(db,l);
+    KDTree ap;
+    mainMenu(db,l,ap);
     
     delete db;
     delete l;

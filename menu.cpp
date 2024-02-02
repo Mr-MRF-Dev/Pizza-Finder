@@ -1,6 +1,6 @@
 #include "menu.h"
 
-void mainMenu(pizzaDataBase* db, AreaList* l){
+void mainMenu(pizzaDataBase* db, AreaList* l, KDTree ap){
     string act;
     while(1){
     cout << Color_Yellow_Dark << "---------------------------------------------------------" << endl;
@@ -23,10 +23,10 @@ void mainMenu(pizzaDataBase* db, AreaList* l){
             Add_N(l);
         } else if (act == "2" || act == "Add-P" || act == "add-p") {
             system("cls");
-            Add_P(db);
+            Add_P(db,ap);
         } else if (act == "3" || act == "Add-Br" || act == "add-br") {
             system("cls");
-            Add_Br(db);
+            Add_Br(db,ap);
         } else if (act == "4" || act == "Del-Br" || act == "del-br") {
             system("cls");
             Del_Br(db);

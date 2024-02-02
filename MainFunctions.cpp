@@ -26,7 +26,7 @@ void Add_N(AreaList* l){
 	}
 }
 
-void Add_P(pizzaDataBase* db){
+void Add_P(pizzaDataBase* db, KDTree ap){
 	int x1, y1;
 	string name;
 	cout << Color_Orange << "please enter the name of the Pizza shop" << Color_Reset << endl;
@@ -35,26 +35,27 @@ void Add_P(pizzaDataBase* db){
 	cin >> x1;
 	cout << Color_Orange << "enter the y" << Color_Reset << endl;
 	cin >> y1;
-
-	/*if (checkPlace) {
-	cout<<"here exist a pizza shop already, please try again"}
-	*/
-
 	pizzaMainBranch *temp = new pizzaMainBranch(name, x1, y1);
-	if (db->addNewMainBranch(temp)) {
+
+	if (!ap.insert(temp)) {
+	cout << Color_Red << "here exist a pizza shop already, couldn't add the pizza shop" << Color_Yellow << "\n\npress any key to continue" << endl;
+	delete temp;
+	}
+	else if (db->addNewMainBranch(temp)) {
 		cout << Color_Green << "\nsuccessfully added the main pizza shop: " << Color_Green_Blue  << name << "\nlocation: (" << x1 << "," << y1 << ")" << Color_Yellow << "\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
 	else {
 		cout << Color_Red << "\ncouldn't add the main pizza shop: " << Color_Green_Blue << name << "\nlocation: (" << x1 << "," << y1 << ")" << Color_Red << ", a pizza shop with this name already exist" << Color_Yellow << "\n\npress any key to continue" << endl;
+		delete temp;
 		getch();
 		system("cls");
 	}
 
 }
 
-void Add_Br(pizzaDataBase* db){
+void Add_Br(pizzaDataBase* db, KDTree ap){
 	int x1, y1;
 	string name, mainName;
 	cout << Color_Orange << "please enter the name of the branch Pizza shop" << Color_Reset << endl;
@@ -65,19 +66,20 @@ void Add_Br(pizzaDataBase* db){
 	cin >> x1;
 	cout << Color_Orange << "enter the y" << Color_Reset << endl;
 	cin >> y1;
-
-	/*if (checkPlace) {
-	cout<<"here exist a pizza shop already, please try again"}
-	*/
-
 	pizzaBranch* temp = new pizzaBranch(name, mainName, x1, y1);
-	if (db->addNewBranch(temp)) {
+
+	if (!ap.insert(temp)) {
+	cout << Color_Red << "here exist a pizza shop already, couldn't add the pizza shop" << Color_Yellow << "\n\npress any key to continue" << endl;
+	delete temp;
+	}
+	else if (db->addNewBranch(temp)) {
 		cout << Color_Green << "\nsuccessfully added the branch pizza shop: " << Color_Green_Blue << name << "\n location: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << Color_Yellow << "\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
 	else {
 		cout << Color_Red << "\ncouldn't add the branch pizza shop: " << Color_Green_Blue << name << "\nlocation: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << Color_Red << "\nthere already exist a brach with the same name or there is no main shop with this name at all" << Color_Yellow << "\n\npress any key to continue" << endl;
+		delete temp;
 		getch();
 		system("cls");
 	}

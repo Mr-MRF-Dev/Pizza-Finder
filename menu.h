@@ -8,8 +8,9 @@
 #include "Area.h"
 #include "dataStructure.h"
 #include "color.h"
+#include "kdTree.h"
 using namespace std;
 
-void mainMenu(pizzaDataBase *db, AreaList* l);
+void mainMenu(pizzaDataBase *db, AreaList* l, KDTree ap);
 
 #endif
