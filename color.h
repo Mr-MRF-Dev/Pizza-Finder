@@ -16,7 +16,7 @@
     #define Color_Blue "\033[0;34m"
     #define Color_Purple "\033[0;35m"
     #define Color_Aqua "\033[38;2;0;255;255m"
-    #define Color_Orange "\033[38;2;255;80;0m"
+    #define Color_Orange "\033[38;2;240;150;0m"
     #define Color_Gray "\033[38;2;128;128;128m"
     #define Color_Deep_Pink "\033[38;2;250;40;155m"
     #define Color_Green_Blue "\033[38;2;0;200;80m"

@@ -53,7 +53,7 @@ void mainMenu(pizzaDataBase* db, AreaList* l){
             cout << "12\n" << endl;
         } else if (act == "0" || act == "Exit" || act == "exit") {
             system("cls");
-            cout << "program ended, press any key to close the program\n" << endl;
+            cout << Color_Deep_Pink <<"program ended, press any key to close the program\n" << endl;
             getch();
             cout << Color_Reset << endl;
             break;
