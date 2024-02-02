@@ -39,6 +39,8 @@ void Add_P(pizzaDataBase* db, KDTree* ap){
 
 	if (!ap->insert(temp)) {
 	cout << Color_Red << "here exist a pizza shop already, couldn't add the pizza shop" << Color_Yellow << "\n\npress any key to continue" << endl;
+	getch();
+	system("cls");
 	delete temp;
 	}
 	else if (db->addNewMainBranch(temp)) {
@@ -70,6 +72,8 @@ void Add_Br(pizzaDataBase* db, KDTree *ap){
 
 	if (!ap->insert(temp)) {
 	cout << Color_Red << "here exist a pizza shop already, couldn't add the pizza shop" << Color_Yellow << "\n\npress any key to continue" << endl;
+	getch();
+	system("cls");
 	delete temp;
 	}
 	else if (db->addNewBranch(temp)) {
