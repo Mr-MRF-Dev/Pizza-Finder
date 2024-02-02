@@ -41,12 +41,12 @@ void Add_P(pizzaDataBase* db){
 
 	pizzaMainBranch *temp = new pizzaMainBranch(name, x1, y1);
 	if (db->addNewMainBranch(temp)) {
-		cout << "\nsuccessfully added the main pizza shop: " << name << "location: (" << x1 << "," << y1 << ")\n\npress any key to continue" << endl;
+		cout << "\nsuccessfully added the main pizza shop: " << name << "\nlocation: (" << x1 << "," << y1 << ")\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't add the main pizza shop: " << name << "location: (" << x1 << "," << y1 << "), a pizza shop with this name already exist\n\npress any key to continue" << endl;
+		cout << "\ncouldn't add the main pizza shop: " << name << "\nlocation: (" << x1 << "," << y1 << "), a pizza shop with this name already exist\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
@@ -70,12 +70,12 @@ void Add_Br(pizzaDataBase* db){
 
 	pizzaBranch* temp = new pizzaBranch(name, mainName, x1, y1);
 	if (db->addNewBranch(temp)) {
-		cout << "\nsuccessfully added the branch pizza shop: " << name << "location: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << "\n\npress any key to continue" << endl;
+		cout << "\nsuccessfully added the branch pizza shop: " << name << "\nlocation: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << "\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
 	else {
-		cout << "\ncouldn't add the branch pizza shop: " << name << "location: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << "\nthere already exist a brach with the same name or there is no main shop with this name at all\n\npress any key to continue" << endl;
+		cout << "\ncouldn't add the branch pizza shop: " << name << "\nlocation: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << "\nthere already exist a brach with the same name or there is no main shop with this name at all\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}
@@ -113,11 +113,10 @@ void List_Brs(pizzaDataBase* db){
 	string name;
 	cout << "please enter the name of the main pizza brach" << endl;
 	cin >> name;
-	/*
-	search function here
-	if(db->printBranch(name))
-	else cout << "there doesnt exit any main pizza branch with this name";
-	*/
+
+	if(!db->printBranch(name))
+		cout << "there doesn't exit any main pizza branch with this name";
+	
     cout <<"\n\npress any key to continue" << endl;
 	getch();
 	system("cls");

@@ -41,9 +41,9 @@ int main() {
         } else if (x == "5" || x == "List-P" || x == "list-p") {
             system("cls");
             cout << "6\n" << endl;
-        } else if (x == "6" || x == "List-Br" || x == "list-br") {
+        } else if (x == "6" || x == "List-Brs" || x == "list-brs") {
             system("cls");
-            cout << "7\n" << endl;
+            List_Brs(db);
         } else if (x == "7" || x == "Near-P" || x == "near-p") {
             system("cls");
             cout << "8\n" << endl;
