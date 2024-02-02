@@ -10,5 +10,6 @@ int main() {
 
     delete db;
     delete l;
+    delete ap;
     return 0;
 }
