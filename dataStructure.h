@@ -10,11 +10,11 @@ using namespace std;
 
 class branchLinkedList {
     private:
-        pizzaMainBranch main;
+        pizzaMainBranch* main;
         pizzaBranch* head_branch;
 
     public:
-        branchLinkedList(pizzaMainBranch main);
+        branchLinkedList(pizzaMainBranch* main);
         bool addNewBranch(pizzaBranch* branch);
         bool deleteBranch(Point l);
 
@@ -33,7 +33,7 @@ class pizzaDataBase {
 
     public:
         pizzaDataBase(int capacity = 10);
-        bool addNewMainBranch(pizzaMainBranch pb);
+        bool addNewMainBranch(pizzaMainBranch* pbm);
         bool addNewBranch(pizzaBranch* pb);
         bool delBranch(Point l);
 };

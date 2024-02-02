@@ -2,7 +2,8 @@
 #include "dataStructure.h"
 
 // branchLinkedList functions
-branchLinkedList::branchLinkedList(pizzaMainBranch main) : main(main) {
+branchLinkedList::branchLinkedList(pizzaMainBranch* main) {
+    this->main = main;
     head_branch = NULL;
 }
 
@@ -62,7 +63,7 @@ bool branchLinkedList::deleteBranch(Point l) {
     return false;
 }
 
-string branchLinkedList::getMainName() { return main.getName(); }
+string branchLinkedList::getMainName() { return main->getName(); }
 
 // pizzaDataBase functions
 pizzaDataBase::pizzaDataBase(int capacity) {
@@ -75,7 +76,7 @@ pizzaDataBase::pizzaDataBase(int capacity) {
     count = 0;
 }
 
-bool pizzaDataBase::addNewMainBranch(pizzaMainBranch pb) {
+bool pizzaDataBase::addNewMainBranch(pizzaMainBranch* pbm) {
 
     if (count == capacity) {
         // malloc new space
@@ -108,11 +109,11 @@ bool pizzaDataBase::addNewMainBranch(pizzaMainBranch pb) {
     }
 
     // add new MAIN Branch
-    branchLinkedList* new_main = new branchLinkedList(pb);
+    branchLinkedList* new_main = new branchLinkedList(pbm);
 
     // where add the main branch???
     // using hash function
-    int index = hash(pb.getName());
+    int index = hash(pbm->getName());
     while (all_main[index] != NULL) {
         if (all_main[index]->getMainName() == new_main->getMainName()) {
             delete new_main;
