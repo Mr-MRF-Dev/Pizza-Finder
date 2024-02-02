@@ -10,11 +10,11 @@ using namespace std;
 
 #if DEBUG
 
-    #define mmd
+    #define log(X, Y) cout << "DEBUG >>> " << X << ": " << Y;
 
 #else
 
-    #define mmd cout << "test";
+    #define log(X, Y)
 
 #endif
 
