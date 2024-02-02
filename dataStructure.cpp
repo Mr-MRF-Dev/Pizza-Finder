@@ -65,6 +65,16 @@ bool branchLinkedList::deleteBranch(Point l) {
 
 string branchLinkedList::getMainName() { return main->getName(); }
 
+void branchLinkedList::print() {
+    cout << *main << endl;
+
+    pizzaBranch* tmp = head_branch;
+    while (tmp) {
+        cout << *tmp << endl;
+        tmp = tmp->getNext();
+    }
+}
+
 // pizzaDataBase functions
 pizzaDataBase::pizzaDataBase(int capacity) {
     this->capacity = capacity;
@@ -182,6 +192,20 @@ bool pizzaDataBase::delBranch(Point l) {
 
     for (int i = 0; i < capacity; i++) {
         if (all_main[i] && all_main[i]->deleteBranch(l)) return true;
+    }
+
+    return false;
+}
+
+bool pizzaDataBase::printBranch(string name) {
+
+    branchLinkedList* branch = findBranch(name);
+
+    if (branch) {
+
+        branch->print();
+
+        return true;
     }
 
     return false;

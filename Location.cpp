@@ -20,3 +20,8 @@ bool Point::operator==(Point tmp) {
 
     return false;
 }
+
+string Point::getStr() {
+
+    return "(" + to_string(x) + ", " + to_string(y) + ")";
+}

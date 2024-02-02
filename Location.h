@@ -2,6 +2,9 @@
 #ifndef LOCATION_H
 #define LOCATION_H
 
+#include <string>
+using namespace std;
+
 class Point {
     private:
         int x;
@@ -13,6 +16,8 @@ class Point {
 
         int getX();
         int getY();
+
+        string getStr();
 
         bool operator==(Point tmp);
 };

@@ -2,7 +2,7 @@
 #ifndef DATASTRUCTURE_H
 #define DATASTRUCTURE_H
 
-#include <list>
+#include <iostream>
 #include <string>
 
 #include "branchClass.h"
@@ -19,6 +19,7 @@ class branchLinkedList {
         bool deleteBranch(Point l);
 
         string getMainName();
+        void print();
 };
 
 class pizzaDataBase {
@@ -36,6 +37,7 @@ class pizzaDataBase {
         bool addNewMainBranch(pizzaMainBranch* pbm);
         bool addNewBranch(pizzaBranch* pb);
         bool delBranch(Point l);
+        bool printBranch(string name);
 };
 
 #endif
