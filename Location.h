@@ -3,6 +3,8 @@
 #define LOCATION_H
 
 #include <string>
+
+#include "debug.h"
 using namespace std;
 
 class Point {
