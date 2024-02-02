@@ -10,7 +10,7 @@ int main() {
     string x;
     while (1) {
         cout << "---------------------------------------------------------"<< endl;
-        cout << " 1) Add-N : add a new hood" << endl;
+        cout << " 1) Add-N : add a new Area" << endl;
         cout << " 2) Add-P : add a new main Pizza shop" << endl;
         cout << " 3) Add-Br : add a new branch to a main pizza shop" << endl;
         cout << " 4) Del-Br : Delete a branch from a main Pizza shop" << endl;
