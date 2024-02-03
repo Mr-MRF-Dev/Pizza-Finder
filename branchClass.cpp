@@ -20,9 +20,15 @@ string branch::getName() { return name; }
 
 ostream& operator<<(ostream& os, branch& b) {
 
-    // output => "Name: xyz, Point: (x, y)"
+    // output => " MAIN  ~ Name: xyz, Point: (x, y)"
+    // output => "BRANCH ~ Name: xyz, Point: (x, y)"
 
-    string final = "Name: " + b.name;
+    string final;
+    if (b.type == 0)
+        final += " MAIN  ~ Name: " + b.name;
+    else
+        final += "BRANCH ~ Name: " + b.name;
+
     final += ",  Point: " + b.point.getStr();
 
     os << final;
@@ -42,9 +48,9 @@ pizzaMainBranch::pizzaMainBranch(pizzaMainBranch& tmp)
 
 ostream& operator<<(ostream& os, pizzaMainBranch& pmb) {
 
-    // output => "Name: xyz, Point: (x, y)"
+    // output => " MAIN  ~ Name: xyz, Point: (x, y)"
 
-    string final = "Name: " + pmb.name;
+    string final = " MAIN  ~ Name: " + pmb.name;
     final += ",  Point: " + pmb.point.getStr();
 
     os << final;
@@ -79,9 +85,9 @@ void pizzaBranch::setPrev(pizzaBranch* prev) { this->prev = prev; }
 
 ostream& operator<<(ostream& os, pizzaBranch& pb) {
 
-    // output => "Name: xyz, Point: (x, y)"
+    // output => "BRANCH ~ Name: xyz, Point: (x, y)"
 
-    string final = "Name: " + pb.name;
+    string final = "BRANCH ~ Name: " + pb.name;
     final += ",  Point: " + pb.point.getStr();
 
     os << final;

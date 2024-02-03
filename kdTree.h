@@ -2,6 +2,10 @@
 #ifndef KDTREE_H
 #define KDTREE_H
 
+#include <vector>
+using namespace std;
+
+#include "Area.h"
 #include "Location.h"
 #include "branchClass.h"
 
@@ -40,11 +44,16 @@ class KDTree {
         treeNode* helpFindMin(treeNode* root, int select, int depth);
         treeNode* findMin(treeNode* root, int select);
 
+        void helpSearchArea(treeNode* root, vector<branch*>* vec, int depth,
+                                 int max_x, int min_x, int max_y, int min_y);
+
     public:
         KDTree();
         bool insert(branch* node);
         bool search(branch* node);
         bool deleteNode(Point p);
+
+        vector<branch*> searchArea(Area* a);
 };
 
 #endif

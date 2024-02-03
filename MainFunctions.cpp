@@ -112,13 +112,27 @@ void Del_Br(pizzaDataBase* db, KDTree *ap){
 	}
 }
 
-void List_P(pizzaDataBase* db, AreaList* l){
+void List_P(KDTree* ap, AreaList* l){
 	string Aname;
 	cout << Color_Orange << "please enter the name of the area" << Color_Reset << endl;
 	cin >> Aname;
 	/*
 	search function here
 	*/
+
+	Area * a = l->search(Aname); 
+	if (a) {
+		for (auto i : ap->searchArea(a)) {
+			cout << *i << endl;
+		}
+	}
+
+	else {
+		// not found area
+
+	}
+
+
     cout << Color_Yellow << "\n\npress any key to continue" << endl;
 	getch();
 	system("cls");

@@ -199,3 +199,66 @@ bool KDTree::deleteNode(Point p) {
 
     return deleted;
 }
+
+void KDTree::helpSearchArea(treeNode* root, vector<branch*>* vec, int depth,
+                                 int max_x, int min_x, int max_y, int min_y) {
+
+    if (root == NULL) return;
+
+    int root_x = root->getPoint().getX();
+    int root_y = root->getPoint().getY();
+
+    if (root_x >= min_x && root_x <= max_x &&
+        root_y >= min_y && root_y <= max_y) {
+
+        vec->push_back(root->getNode());
+    }
+
+    if (depth % 2 == 0) {
+        if (root_x > max_x) {
+            helpSearchArea(root->getLeft(), vec, depth, max_x, min_x, max_y,
+                           min_y);
+        }
+
+        else if (root_x < min_x) {
+            helpSearchArea(root->getRight(), vec, depth, max_x, min_x, max_y,
+                           min_y);
+        }
+
+        // if (root_x >= min_x && root_x <= max_x)
+        else {
+            helpSearchArea(root->getLeft(), vec, depth, max_x, min_x, max_y,
+                           min_y);
+            helpSearchArea(root->getRight(), vec, depth, max_x, min_x, max_y,
+                           min_y);
+        }
+    }
+
+    else {
+        if (root_y > max_y) {
+            helpSearchArea(root->getLeft(), vec, depth, max_x, min_x, max_y,
+                           min_y);
+        }
+
+        else if (root_y < min_y) {
+            helpSearchArea(root->getRight(), vec, depth, max_x, min_x, max_y,
+                           min_y);
+        }
+
+        // if (root_y >= min_y && root_y <= max_y)
+        else {
+            helpSearchArea(root->getLeft(), vec, depth, max_x, min_x, max_y,
+                           min_y);
+            helpSearchArea(root->getRight(), vec, depth, max_x, min_x, max_y,
+                           min_y);
+        }
+    }
+}
+
+vector<branch*> KDTree::searchArea(Area* a) {
+    vector<branch*> vec;
+    helpSearchArea(head, &vec, 0, a->getMaxX(), a->getMinX(), a->getMaxY(),
+                   a->getMinY());
+
+    return vec;
+}
