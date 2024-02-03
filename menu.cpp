@@ -58,9 +58,8 @@ void mainMenu(pizzaDataBase* db, AreaList* l, KDTree* ap){
         } 
         else if (act == "10" || act == "Most-Brs" || act == "most-brs") {
             system("cls");
-            cout << "11\n" << endl;
-        } 
-        else if (act == "11" || act == "Undo" || act == "undo") {
+            Most_Brs(db);
+        } else if (act == "11" || act == "Undo" || act == "undo") {
             system("cls");
             cout << "12\n" << endl;
         } 

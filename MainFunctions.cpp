@@ -174,7 +174,7 @@ void Near_Br(KDTree* ap, pizzaDataBase* db) {
 	
 	string name;
 	int x1, y1;
-	cout << Color_Orange << "finding the nearest pizza shop to this location\nplease enter the x" << Color_Reset << endl;
+	cout << Color_Orange << "finding the nearest pizza branch shop to this location\nplease enter the x" << Color_Reset << endl;
 	cin >> x1;
 	cout << Color_Orange << "enter the y" << Color_Reset <<endl;
 	cin >> y1;
@@ -218,8 +218,26 @@ void Avail_P(KDTree* ap){
 
 }
 
-void Most_Brs(){
-	
+void Most_Brs(pizzaDataBase* db){
+	string name;
+	cout << Color_Orange << "print most branches\nenter main branch name:" << Color_Reset << endl;
+	cin >> name;
+
+	// return a sorted vector of branches
+	vector<string> tmp = db->getMostBranch(name);
+
+	if (tmp.size() == 0) {
+		cout << " no branch" << endl;
+	}
+
+	else {
+		for (auto i : tmp) {
+			cout << i << endl;
+		}
+	}
+
+	cout << endl;
+
 }
 
 void Undo(){

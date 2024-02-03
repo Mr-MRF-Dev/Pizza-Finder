@@ -3,6 +3,7 @@
 #define DATASTRUCTURE_H
 
 #include <iostream>
+#include <vector>
 #include <string>
 
 #include "branchClass.h"
@@ -12,6 +13,7 @@ class branchLinkedList {
     private:
         pizzaMainBranch* main;
         pizzaBranch* head_branch;
+        int count;
 
     public:
         branchLinkedList(pizzaMainBranch* main);
@@ -20,6 +22,7 @@ class branchLinkedList {
 
         string getBrName(Point l);
         string getMainName();
+        int getCount();
         void print();
 };
 
@@ -40,6 +43,8 @@ class pizzaDataBase {
         bool delBranch(Point l);
         bool printBranch(string name);
         string getBranchName(Point l);
-};
+
+        vector<string> getMostBranch(string name);
+ };
 
 #endif

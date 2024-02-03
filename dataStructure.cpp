@@ -5,12 +5,14 @@
 branchLinkedList::branchLinkedList(pizzaMainBranch* main) {
     this->main = main;
     head_branch = NULL;
+    count = 1;
 }
 
 bool branchLinkedList::addNewBranch(pizzaBranch* branch) {
 
     if (head_branch == NULL) {
         head_branch = branch;
+        count++;
         return true;
     }
 
@@ -19,18 +21,18 @@ bool branchLinkedList::addNewBranch(pizzaBranch* branch) {
 
         if (tmp->getName() == branch->getName()) return false;
 
-        if (tmp->getPoint() == branch->getPoint()) return false;
+        // if (tmp->getPoint() == branch->getPoint()) return false;
 
         tmp = tmp->getNext();
     }
 
     // check the last node
     if (tmp->getName() == branch->getName()) return false;
-    if (tmp->getPoint() == branch->getPoint()) return false;
+    // if (tmp->getPoint() == branch->getPoint()) return false;
 
     tmp->setNext(branch);
     branch->setPrev(tmp);
-
+    count++;
     return true;
 }
 
@@ -45,6 +47,7 @@ bool branchLinkedList::deleteBranch(Point l) {
         // delete head
         head_branch = head_branch->getNext();
         delete tmp;
+        count--;
         return true;
     }
 
@@ -54,6 +57,7 @@ bool branchLinkedList::deleteBranch(Point l) {
             // delete node
             tmp->getPrev()->setNext(tmp->getNext());
             delete tmp;
+            count--;
             return true;
         }
 
@@ -65,18 +69,19 @@ bool branchLinkedList::deleteBranch(Point l) {
 
 string branchLinkedList::getMainName() { return main->getName(); }
 
-string branchLinkedList::getBrName(Point l) { 
-    
+string branchLinkedList::getBrName(Point l) {
+
     pizzaBranch* tmp = head_branch;
-    while(tmp){
+    while (tmp) {
         if (tmp->getPoint() == l) {
             return head_branch->getName();
-
         }
-    tmp = tmp->getNext();
+        tmp = tmp->getNext();
     }
     return "";
 }
+
+int branchLinkedList::getCount() { return count; }
 
 void branchLinkedList::print() {
     int i = 0;
@@ -227,12 +232,31 @@ bool pizzaDataBase::printBranch(string name) {
     return false;
 }
 
-string pizzaDataBase::getBranchName(Point l){
-     
-   for (int i = 0; i < capacity; i++) {
-        if (all_main[i] && all_main[i]->getBrName(l)!="") return all_main[i]->getBrName(l);
+string pizzaDataBase::getBranchName(Point l) {
+
+    for (int i = 0; i < capacity; i++) {
+        if (all_main[i] && all_main[i]->getBrName(l) != "")
+            return all_main[i]->getBrName(l);
     }
     return "";
+}
+
+vector<string> pizzaDataBase::getMostBranch(string name) {
+
+
+    vector<pair<string, int>> final;
+
+    for (int i = 0; i < capacity; i++) {
+        if (all_main[i]) {
+
+            
+
+        }
+    }
+
+
+    return final;
+
 }
 
 // int pizzaDataBase::hash(string name, int i) {

@@ -23,7 +23,7 @@ void Near_Br();
 void Avail_P(KDTree* ap);
 void Near_Br(KDTree* ap, pizzaDataBase* db);
 void Avail_P();
-void Most_Brs();
+void Most_Brs(pizzaDataBase* db);
 void Undo();
 
 #endif
