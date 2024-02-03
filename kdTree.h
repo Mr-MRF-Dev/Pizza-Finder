@@ -72,6 +72,9 @@ class KDTree {
 
         treeNode* helpFindNearstBranch(Point t, treeNode* root, treeNode* near,
                                        int depth);
+       
+        treeNode* helpFindNearstBranchFilter(Point t, treeNode* root, treeNode* near,
+                                       int depth, string name);
 
         int checkOtherBr(Point t, treeNode* root, int depth);
 
@@ -87,6 +90,8 @@ class KDTree {
 
         branch* findNearstBranch(Point t);
         vector<branch*> findInRadius(Point t, int r);
+
+        branch* findNearstBranchFilter(Point t, string main_name);
 };
 
 #endif

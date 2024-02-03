@@ -25,6 +25,8 @@ class branch {
         string getName();
         Point getPoint();
         int getType();
+
+        virtual string getMainName() = 0;
 };
 
 ostream& operator<<(ostream& os, branch& b);
@@ -32,6 +34,7 @@ ostream& operator<<(ostream& os, branch& b);
 class pizzaMainBranch : public branch {
 
     public:
+        string getMainName();
         friend ostream& operator<<(ostream& os, pizzaMainBranch& pmb);
 
         pizzaMainBranch(string name, int x, int y);

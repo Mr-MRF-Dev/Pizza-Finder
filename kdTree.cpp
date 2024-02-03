@@ -533,7 +533,7 @@ treeNode* KDTree::helpFindNearstBranch(Point t, treeNode* root, treeNode* near,
         }
     }
 
-    log2("here", "?");
+    // log2("here", "?");
 
     near = helpFindNearstBranch(t, new_br, near, depth + 1);
 
@@ -545,15 +545,89 @@ treeNode* KDTree::helpFindNearstBranch(Point t, treeNode* root, treeNode* near,
 
 branch* KDTree::findNearstBranch(Point t) {
 
-    log2("head ~ ", head);
-    log2("KDTree::findNearstBranch()", "call function");
+    // log2("head ~ ", head);
+    // log2("KDTree::findNearstBranch()", "call function");
     treeNode* tmp = helpFindNearstBranch(t, head, NULL, 0);
 
     if (tmp != NULL) {
         return tmp->getNode();
     }
 
-    log2("KDTree::findNearstBranch()", "is null");
+    // log2("KDTree::findNearstBranch()", "is null");
+    return NULL;
+}
+
+treeNode* KDTree::helpFindNearstBranchFilter(Point t, treeNode* root,
+                                             treeNode* near, int depth,
+                                             string name) {
+
+    if (root == NULL) {
+        return near;
+    }
+
+    if (near == NULL ||
+        near->getPoint().getDistance(t) > root->getPoint().getDistance(t)) {
+        near = root;
+    }
+
+    treeNode* new_br;
+    treeNode* other_br;
+
+    if (depth % 2 == 0) {
+
+        if (t.getX() < root->getPoint().getX()) {
+            new_br = root->getLeft();
+            other_br = root->getRight();
+        }
+
+        else {
+            new_br = root->getRight();
+            other_br = root->getLeft();
+        }
+
+    } else if (depth % 2 == 1) {
+
+        if (t.getY() < root->getPoint().getY()) {
+            new_br = root->getLeft();
+            other_br = root->getRight();
+        }
+
+        else {
+            new_br = root->getRight();
+            other_br = root->getLeft();
+        }
+    }
+
+    // near = helpFindNearstBranchFilter(t, new_br, near, depth + 1, name);
+    treeNode* tmp1 =
+        helpFindNearstBranchFilter(t, new_br, near, depth + 1, name);
+    if (tmp1 != NULL && tmp1->getNode()->getMainName() == name) {
+        near = tmp1;
+    }
+
+    if (checkOtherBr(t, other_br, depth + 1)) {
+        treeNode* tmp2 =
+            helpFindNearstBranchFilter(t, other_br, near, depth + 1, name);
+        if (tmp2 != NULL && tmp2->getNode()->getMainName() == name) {
+            near = tmp2;
+        }
+    }
+
+    if (near != NULL && near->getNode()->getMainName() == name) {
+        return near;
+    }
+
+    return NULL;
+}
+
+branch* KDTree::findNearstBranchFilter(Point t, string main_name) {
+
+    treeNode* tmp = helpFindNearstBranchFilter(t, head, NULL, 0, main_name);
+
+    if (tmp != NULL) {
+        return tmp->getNode();
+    }
+
     return NULL;
 }
 
