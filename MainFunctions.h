@@ -15,7 +15,7 @@ using namespace std;
 void Add_N(AreaList* l);
 void Add_P(pizzaDataBase* db, KDTree* ap);
 void Add_Br(pizzaDataBase* db, KDTree* ap);
-void Del_Br(pizzaDataBase* db);
+void Del_Br(pizzaDataBase* db, KDTree *ap);
 void List_P(pizzaDataBase* db, AreaList* l);
 void List_Brs(pizzaDataBase* db);
 void Near_P();
