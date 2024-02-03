@@ -108,7 +108,7 @@ void Del_Br(pizzaDataBase* db){
 	}
 }
 
-void List_P(pizzaDataBase* db){
+void List_P(pizzaDataBase* db, AreaList* l){
 	string Aname;
 	cout << Color_Orange << "please enter the name of the area" << Color_Reset << endl;
 	cin >> Aname;
