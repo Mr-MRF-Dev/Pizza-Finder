@@ -34,7 +34,7 @@ bool treeNode::isBalanced() {
     int x = left_depth - right_depth;
 
     // log2("treeNode::isBalanced()",
-         to_string(x) + ", " + this->getPoint().getStr());
+        //  to_string(x) + ", " + this->getPoint().getStr());
 
     if (x >= -1 && x <= 1) return true;
 
