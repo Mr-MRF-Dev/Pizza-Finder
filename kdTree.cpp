@@ -263,3 +263,68 @@ vector<branch*> KDTree::searchArea(Area* a) {
 
     return vec;
 }
+
+int checkOtherBr(Point t, treeNode* root, treeNode* near, int depth) {
+    
+    int distance = t.getDistance(root->getPoint());
+
+    if (depth % 2 == 0){
+        if (pow(root->getPoint().getX() - t.getX(), 2) < distance) return 1;
+        else return 0; 
+    }
+    else {
+        if (pow(root->getPoint().getY() - t.getY(), 2) < distance) return 1;
+        else return 0; 
+    }
+
+}
+
+treeNode* KDTree::helpFindNearstBranch(Point t, treeNode* root, treeNode* near, int depth){
+    
+    if(root==NULL){
+        return near;
+    }    
+    
+    if (near->getPoint().getDistance(t) > root->getPoint().getDistance(t) || near == NULL){
+        near = root;
+    }
+
+    treeNode* new_br;
+    treeNode* other_br;
+
+    if(depth % 2 == 0){
+        
+        if(t.getX() < root->getPoint().getX()){
+            new_br = root->getLeft();
+            other_br = root->getRight();
+        }
+        
+        else{
+            new_br = root->getRight();
+            other_br = root->getLeft();
+        }
+
+    }
+    else if(depth % 2 == 1){
+        
+        if(t.getY() < root->getPoint().getY()){
+            new_br = root->getLeft();
+            other_br = root->getRight();
+        }
+        
+        else{
+            new_br = root->getRight();
+            other_br = root->getLeft();
+        }
+    }
+
+    near = helpFindNearstBranch(t, new_br, near, ++depth);
+
+    if(checkOtherBr(t, new_br, near, depth)) near = helpFindNearstBranch(t, other_br, near, ++depth);
+
+    return near;
+}
+
+branch* KDTree::findNearstBranch(Point t){
+    return helpFindNearstBranch(t, head, NULL, 0)->getNode();
+}
