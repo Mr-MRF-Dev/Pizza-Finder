@@ -6,12 +6,39 @@ treeNode::treeNode(branch* node) {
     this->node = node;
     left = NULL;
     right = NULL;
+    right_depth = 0;
+    left_depth = 0;
 }
 
 treeNode::treeNode(treeNode& tmp) {
     node = tmp.node;
     left = tmp.left;
     right = tmp.right;
+    right_depth = tmp.right_depth;
+    left_depth = tmp.left_depth;
+}
+
+void treeNode::add1LeftDepth() { left_depth += 1; }
+
+void treeNode::add1RightDepth() { right_depth += 1; }
+
+void treeNode::setLeftDepth(int left) { left_depth = left; }
+
+void treeNode::setRightDepth(int right) { right_depth = right; }
+
+int treeNode::getLeftDepth() { return left_depth; }
+
+int treeNode::getRightDepth() { return right_depth; }
+
+bool treeNode::isBalanced() {
+    int x = left_depth - right_depth;
+
+    // log2("treeNode::isBalanced()",
+         to_string(x) + ", " + this->getPoint().getStr());
+
+    if (x >= -1 && x <= 1) return true;
+
+    return false;
 }
 
 Point treeNode::getPoint() { return node->getPoint(); }
@@ -29,12 +56,24 @@ branch* treeNode::getNode() { return node; }
 void treeNode::setNode(branch* node) { this->node = node; }
 
 // KDTree functions
-KDTree::KDTree() { head = NULL; }
+KDTree::KDTree() {
+    head = NULL;
+    needReBuild = false;
+
+    // log2("KDTree::KDTree()", "create a new tree");
+}
+
+void KDTree::insertInVecX(treeNode* x) {
+
+    // log2("KDTree::insertInVecX", x->getPoint().getStr());
+    vec_sort_X.push_back(x);
+}
 
 treeNode* KDTree::helpInsert(treeNode* root, branch* node, int depth) {
 
     if (root == NULL) {
         treeNode* new_node = new treeNode(node);
+        insertInVecX(new_node);
         return new_node;
     }
 
@@ -50,10 +89,17 @@ treeNode* KDTree::helpInsert(treeNode* root, branch* node, int depth) {
         number_root = root->getPoint().getY();
     }
 
-    if (number_node < number_root)
+    if (number_node < number_root) {
+        root->add1LeftDepth();
+        if (!root->isBalanced()) needReBuild = true;
         root->setLeft(helpInsert(root->getLeft(), node, depth + 1));
-    else
+    }
+
+    else {
+        root->add1RightDepth();
+        if (!root->isBalanced()) needReBuild = true;
         root->setRight(helpInsert(root->getRight(), node, depth + 1));
+    }
 
     return root;
 }
@@ -61,12 +107,171 @@ treeNode* KDTree::helpInsert(treeNode* root, branch* node, int depth) {
 bool KDTree::insert(branch* node) {
 
     if (search(node)) {
-
         return false;
     }
 
     head = helpInsert(head, node, 0);
+
+    if (needReBuild) {
+        // log2("KDTree::insert()", "need reBuild");
+        reBuild();
+        needReBuild = false;
+    }
+
     return true;
+}
+
+void KDTree::helpMergeSort(vector<treeNode*>* arr, int left, int mid, int right,
+                           int select) {
+
+    int leftLen = mid - left + 1;
+    int rightLen = right - mid;
+
+    vector<treeNode*> leftVec(leftLen);
+    vector<treeNode*> rightVec(rightLen);
+
+    for (int i = 0; i < leftLen; i++) leftVec[i] = (*arr)[left + i];
+    for (int j = 0; j < rightLen; j++) rightVec[j] = (*arr)[mid + 1 + j];
+
+    auto I_ofLeft = 0, I_ofRight = 0;
+    int insertMaster = left;
+
+    while (I_ofLeft < leftLen && I_ofRight < rightLen) {
+
+        if (select == 0) {
+            if (leftVec[I_ofLeft]->getPoint().getX() <=
+                rightVec[I_ofRight]->getPoint().getX()) {
+
+                (*arr)[insertMaster] = leftVec[I_ofLeft];
+                I_ofLeft++;
+            }
+
+            else {
+                (*arr)[insertMaster] = rightVec[I_ofRight];
+                I_ofRight++;
+            }
+        }
+
+        // Y
+        else {
+            if (leftVec[I_ofLeft]->getPoint().getY() <=
+                rightVec[I_ofRight]->getPoint().getY()) {
+
+                (*arr)[insertMaster] = leftVec[I_ofLeft];
+                I_ofLeft++;
+            }
+
+            else {
+                (*arr)[insertMaster] = rightVec[I_ofRight];
+                I_ofRight++;
+            }
+        }
+
+        insertMaster++;
+    }
+
+    while (I_ofLeft < leftLen) {
+        (*arr)[insertMaster] = leftVec[I_ofLeft];
+        I_ofLeft++;
+        insertMaster++;
+    }
+
+    while (I_ofRight < rightLen) {
+        (*arr)[insertMaster] = rightVec[I_ofRight];
+        I_ofRight++;
+        insertMaster++;
+    }
+}
+
+void KDTree::mergeSort(vector<treeNode*>* arr, int left, int right,
+                       int select) {
+
+    if (left >= right) return;
+    int mid = left + (right - left) / 2;
+    mergeSort(arr, left, mid, select);
+    mergeSort(arr, mid + 1, right, select);
+    helpMergeSort(arr, left, mid, right, select);
+}
+
+void KDTree::reBuild() {
+
+    // log2("KDTree::reBuild()", "start");
+
+    mergeSort(&vec_sort_X, 0, vec_sort_X.size() - 1, 0);  // sorted By X
+
+    for (auto i : vec_sort_X)
+        // log2("KDTree::reBuild() - for ", (*i).getPoint().getStr());
+
+    head = helpReBuild(vec_sort_X, 0);
+}
+
+treeNode* KDTree::helpReBuild(vector<treeNode*> v, int depth) {
+
+    // log3("KDTree::helpReBuild()", to_string(v.size()), to_string(depth));
+
+    if (v.size() == 0) return NULL;
+
+    int mid = (v.size()) / 2;
+
+    int s_tmp = 0;
+    int m_tmp = mid + 1;
+    int end = v.size() - 1;
+    vector<treeNode*> v_left;
+    vector<treeNode*> v_right;
+
+    bool ender1 = false;
+    bool ender2 = false;
+
+    while (!ender1 || !ender2) {
+
+        if (s_tmp <= mid - 1) {
+            v_left.push_back(v[s_tmp]);
+            s_tmp++;
+        } else {
+            ender1 = true;
+        }
+
+        if (m_tmp <= end) {
+            v_right.push_back(v[m_tmp]);
+            m_tmp++;
+        } else {
+            ender2 = true;
+        }
+    }
+
+    // log2("KDTree::helpReBuild() - while", "while Ended");
+
+    if ((depth + 1) % 2 != 0) {
+        mergeSort(&v_left, 0, v_left.size() - 1, 1);
+        mergeSort(&v_right, 0, v_right.size() - 1, 1);
+    }
+
+    else {
+        mergeSort(&v_left, 0, v_left.size() - 1, 0);
+        mergeSort(&v_right, 0, v_right.size() - 1, 0);
+    }
+
+    // set the left node
+    treeNode* tmp = helpReBuild(v_left, depth + 1);
+
+    if (tmp == NULL)
+        v[mid]->setLeftDepth(-1);
+    else
+        v[mid]->setLeftDepth(tmp->getLeftDepth());
+
+    (v[mid])->setLeft(tmp);
+
+    // set the right node
+    tmp = helpReBuild(v_right, depth + 1);
+
+    if (tmp == NULL)
+        v[mid]->setRightDepth(-1);
+    else
+        v[mid]->setRightDepth(tmp->getRightDepth());
+
+    (v[mid])->setRight(tmp);
+
+    return v[mid];
 }
 
 bool KDTree::helpSearch(treeNode* root, branch* node, int depth) {
@@ -116,7 +321,7 @@ treeNode* KDTree::helpFindMin(treeNode* root, int select, int depth) {
 
     if (root == NULL) return NULL;
 
-    if (depth % 2 == 0) { // check with X point
+    if (depth % 2 == 0) {  // check with X point
         if (root->getLeft() == NULL) return root;
 
         return helpFindMin(root->getLeft(), select, depth + 1);
@@ -202,15 +407,15 @@ bool KDTree::deleteNode(Point p) {
 }
 
 void KDTree::helpSearchArea(treeNode* root, vector<branch*>* vec, int depth,
-                                 int max_x, int min_x, int max_y, int min_y) {
+                            int max_x, int min_x, int max_y, int min_y) {
 
     if (root == NULL) return;
 
     int root_x = root->getPoint().getX();
     int root_y = root->getPoint().getY();
 
-    if (root_x >= min_x && root_x <= max_x &&
-        root_y >= min_y && root_y <= max_y) {
+    if (root_x >= min_x && root_x <= max_x && root_y >= min_y &&
+        root_y <= max_y) {
 
         vec->push_back(root->getNode());
     }

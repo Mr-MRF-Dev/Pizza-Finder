@@ -3,11 +3,12 @@
 #define KDTREE_H
 
 #include <vector>
-using namespace std;
 
 #include "Area.h"
 #include "Location.h"
 #include "branchClass.h"
+#include "debug.h"
+using namespace std;
 
 // using 2D-Tree
 class treeNode {
@@ -15,6 +16,8 @@ class treeNode {
         branch* node;
         treeNode* left;
         treeNode* right;
+        int left_depth;
+        int right_depth;
 
     public:
         treeNode(branch* node);
@@ -28,13 +31,33 @@ class treeNode {
         void setNode(branch* node);
         void setLeft(treeNode* left);
         void setRight(treeNode* right);
+
+        void setLeftDepth(int left);
+        void setRightDepth(int right);
+        int getLeftDepth();
+        int getRightDepth();
+        void add1LeftDepth();
+        void add1RightDepth();
+
+        bool isBalanced();
 };
 
 class KDTree {
     private:
         treeNode* head;
+        vector<treeNode*> vec_sort_X;
+        bool needReBuild;
 
         treeNode* helpInsert(treeNode* root, branch* node, int depth);
+        void insertInVecX(treeNode* x);
+
+        treeNode* helpReBuild(vector<treeNode*> v, int depth);
+        void reBuild();
+
+        void helpMergeSort(vector<treeNode*>* arr, int left, int mid, int right,
+                           int select);
+        void mergeSort(vector<treeNode*>* arr, int left, int right, int select);
+
         bool helpSearch(treeNode* root, branch* node, int depth);
 
         treeNode* minThreeNode(treeNode* x, treeNode* y, treeNode* z,
@@ -45,7 +68,7 @@ class KDTree {
         treeNode* findMin(treeNode* root, int select);
 
         void helpSearchArea(treeNode* root, vector<branch*>* vec, int depth,
-                                 int max_x, int min_x, int max_y, int min_y);
+                            int max_x, int min_x, int max_y, int min_y);
 
     public:
         KDTree();
