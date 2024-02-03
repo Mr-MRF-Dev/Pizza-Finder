@@ -46,6 +46,8 @@ pizzaMainBranch::pizzaMainBranch(pizzaMainBranch& tmp)
     type = 0;
 }
 
+string pizzaMainBranch::getMainName() { return name; }
+
 ostream& operator<<(ostream& os, pizzaMainBranch& pmb) {
 
     // output => " MAIN  ~ Name: xyz, Point: (x, y)"
