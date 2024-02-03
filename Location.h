@@ -23,7 +23,7 @@ class Point {
 
         bool operator==(Point tmp);
 
-        int distance(Point a, Point b);
+        int getDistance(Point temp);
 };
 
 #endif

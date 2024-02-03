@@ -42,6 +42,6 @@ string Point::getStr() {
     return "(" + to_string(x) + ", " + to_string(y) + ")";
 }
 
-int Point::distance(Point a, Point b) {
-    return pow((a.getX() - b.getX()) , 2) + pow((a.getY() - b.getY()) , 2);
+int Point::getDistance(Point temp) {
+    return pow((x - temp.getX()) , 2) + pow((y - temp.getY()) , 2);
 }
