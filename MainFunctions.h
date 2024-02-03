@@ -19,10 +19,8 @@ void Del_Br(pizzaDataBase* db, KDTree* ap);
 void List_P(KDTree* ap, AreaList* l);
 void List_Brs(pizzaDataBase* db);
 void Near_P(KDTree* ap);
-void Near_Br();
 void Avail_P(KDTree* ap);
 void Near_Br(KDTree* ap, pizzaDataBase* db);
-void Avail_P();
 void Most_Brs();
 void Undo();
 

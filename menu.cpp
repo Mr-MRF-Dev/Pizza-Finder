@@ -48,11 +48,9 @@ void mainMenu(pizzaDataBase* db, AreaList* l, KDTree* ap){
         } 
         else if (act == "8" || act == "Near-Br" || act == "near-br") {
             system("cls");
-            cout << "9\n" << endl;
-        } 
-        else if (act == "9" || act == "Avail-P" || act == "avail-p") {
             Near_Br(ap, db);
-        } else if (act == "9" || act == "Avail-P" || act == "avail-p") {
+        }
+        else if (act == "9" || act == "Avail-P" || act == "avail-p") {
             system("cls");
             Avail_P(ap);
         } 
