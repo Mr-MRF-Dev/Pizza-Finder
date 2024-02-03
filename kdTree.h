@@ -75,6 +75,8 @@ class KDTree {
 
         int checkOtherBr(Point t, treeNode* root, int depth);
 
+        void helpFindInRadius(Point t, int r, treeNode* root, int depth, vector<branch*>* vec);
+
     public:
         KDTree();
         bool insert(branch* node);
@@ -84,6 +86,7 @@ class KDTree {
         vector<branch*> searchArea(Area* a);
 
         branch* findNearstBranch(Point t);
+        vector<branch*> findInRadius(Point t, int r);
 };
 
 #endif

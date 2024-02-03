@@ -174,8 +174,28 @@ void Near_Br(){
 	
 }
 
-void Avail_P(){
+void Avail_P(KDTree* ap){
+	int x1, y1, r;
+	cout << Color_Orange << "finding pizza shops in near by location\nplease enter the x" << Color_Reset << endl;
+	cin >> x1;
+	cout << Color_Orange << "enter the y" << Color_Reset <<endl;
+	cin >> y1;
+	cout << Color_Orange << "enter the Radius" << Color_Reset <<endl;
+	cin >> r;
+	Point temp(x1, y1);
+
+	for (auto i : ap->findInRadius(temp,r)) {
+		cout << *i << endl;
+	}
 	
+	// not found area
+
+    cout << Color_Yellow << "\n\npress any key to continue" << endl;
+	getch();
+	system("cls");
+
+
+
 }
 
 void Most_Brs(){
