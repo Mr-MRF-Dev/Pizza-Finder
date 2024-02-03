@@ -116,7 +116,7 @@ treeNode* KDTree::helpFindMin(treeNode* root, int select, int depth) {
 
     if (root == NULL) return NULL;
 
-    if (depth % 2 == 0) {
+    if (depth % 2 == 0) { // check with X point
         if (root->getLeft() == NULL) return root;
 
         return helpFindMin(root->getLeft(), select, depth + 1);
@@ -136,6 +136,7 @@ treeNode* KDTree::helpDeleteNode(treeNode* root, Point p, int depth,
 
     if (root == NULL) return NULL;
 
+    // x -> cd == 0, else: y -> cd == 1
     int cd = depth % 2;
 
     if (root->getPoint() == p) {
