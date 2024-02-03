@@ -38,7 +38,7 @@ void mainMenu(pizzaDataBase* db, AreaList* l, KDTree* ap){
             List_Brs(db);
         } else if (act == "7" || act == "Near-P" || act == "near-p") {
             system("cls");
-            cout << "8\n" << endl;
+            Near_P(ap);
         } else if (act == "8" || act == "Near-Br" || act == "near-br") {
             system("cls");
             cout << "9\n" << endl;
