@@ -170,8 +170,28 @@ void Near_P(KDTree* ap){
 
 }
 
-void Near_Br(){
+void Near_Br(KDTree* ap, pizzaDataBase* db) {
 	
+	string name;
+	int x1, y1;
+	cout << Color_Orange << "finding the nearest pizza shop to this location\nplease enter the x" << Color_Reset << endl;
+	cin >> x1;
+	cout << Color_Orange << "enter the y" << Color_Reset <<endl;
+	cin >> y1;
+	cout << Color_Orange << "enter the name" << Color_Reset <<endl;
+	cin >> name;
+
+	Point temp(x1, y1);
+
+	branch* tmp = ap->findNearstBranchFilter(temp, name);
+	if(tmp!=NULL){
+		cout << *tmp << endl;
+	}
+	else{
+		cout << " no branch" << endl;
+	}
+
+
 }
 
 void Avail_P(){
