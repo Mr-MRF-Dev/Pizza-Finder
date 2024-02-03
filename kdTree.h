@@ -57,7 +57,7 @@ class KDTree {
 
         vector<branch*> searchArea(Area* a);
 
-        bool checkOtherBr(Point t, treeNode* root, treeNode* near, int depth);
+        int checkOtherBr(Point t, treeNode* root, treeNode* near, int depth);
         branch* findNearstBranch(Point t);
 
 };

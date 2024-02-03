@@ -152,8 +152,22 @@ void List_Brs(pizzaDataBase* db){
 	system("cls");
 }
 
-void Near_P(){
-	
+void Near_P(KDTree* ap){
+	int x1, y1;
+	cout << Color_Orange << "finding the nearest pizza shop to this location\nplease enter the x" << Color_Reset << endl;
+	cin >> x1;
+	cout << Color_Orange << "enter the y" << Color_Reset <<endl;
+	cin >> y1;
+	Point temp(x1, y1);
+
+	branch* tmp = ap->findNearstBranch(temp);
+	if(tmp!=NULL){
+		cout << tmp;
+	}
+	else{
+		cout << " no branch";
+	}
+
 }
 
 void Near_Br(){
