@@ -29,7 +29,7 @@ void mainMenu(pizzaDataBase* db, AreaList* l, KDTree* ap){
             Add_Br(db,ap);
         } else if (act == "4" || act == "Del-Br" || act == "del-br") {
             system("cls");
-            Del_Br(db);
+            Del_Br(db,ap);
         } else if (act == "5" || act == "List-P" || act == "list-p") {
             system("cls");
             cout << "6\n" << endl;
