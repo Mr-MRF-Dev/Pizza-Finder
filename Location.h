@@ -3,7 +3,7 @@
 #define LOCATION_H
 
 #include <string>
-
+#include <cmath>
 #include "debug.h"
 using namespace std;
 
@@ -22,6 +22,8 @@ class Point {
         string getStr();
 
         bool operator==(Point tmp);
+
+        int distance(Point a, Point b);
 };
 
 #endif
