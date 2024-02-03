@@ -18,6 +18,7 @@ class branchLinkedList {
         bool addNewBranch(pizzaBranch* branch);
         bool deleteBranch(Point l);
 
+        string getBrName(Point l);
         string getMainName();
         void print();
 };
@@ -38,6 +39,7 @@ class pizzaDataBase {
         bool addNewBranch(pizzaBranch* pb);
         bool delBranch(Point l);
         bool printBranch(string name);
+        string getBranchName(Point l);
 };
 
 #endif

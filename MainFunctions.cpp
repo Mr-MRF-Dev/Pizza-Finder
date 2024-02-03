@@ -98,10 +98,11 @@ void Del_Br(pizzaDataBase* db, KDTree *ap){
 	cout << Color_Orange << "enter the y" << Color_Reset <<endl;
 	cin >> y1;
 	Point temp(x1, y1);
+	string brName = db->getBranchName(temp);
 	if (db->delBranch(temp)) {
 		//delete the point from ap
 		ap->deleteNode(temp);
-		cout << Color_Green <<"\nsuccessfully deleted the pizza shop in the location" << Color_Yellow << "\n\npress any key to continue" << endl;
+		cout << Color_Green <<"\nsuccessfully deleted the pizza shop: " << Color_Aqua << brName << Color_Green << " in the location: " << Color_Aqua << "(" << x1 << ", " << y1 << ")" << Color_Yellow << "\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
 	}

@@ -65,14 +65,27 @@ bool branchLinkedList::deleteBranch(Point l) {
 
 string branchLinkedList::getMainName() { return main->getName(); }
 
+string branchLinkedList::getBrName(Point l) { 
+    
+    pizzaBranch* tmp = head_branch;
+    while(tmp){
+        if (tmp->getPoint() == l) {
+            return head_branch->getName();
+
+        }
+    tmp = tmp->getNext();
+    }
+    return "";
+}
+
 void branchLinkedList::print() {
     int i = 0;
-    cout << "\nmain "<< *main << endl;
+    cout << "\n" << *main << endl;
     pizzaBranch* tmp = head_branch;
     cout << "\n";
     while (tmp) {
         i++;
-        cout << "branch " << i << " " << *tmp << endl;
+        cout << i << ". " << *tmp << endl;
         tmp = tmp->getNext();
     }
     cout << "\ntotal branches: " << i << endl;
@@ -212,6 +225,14 @@ bool pizzaDataBase::printBranch(string name) {
     }
 
     return false;
+}
+
+string pizzaDataBase::getBranchName(Point l){
+     
+   for (int i = 0; i < capacity; i++) {
+        if (all_main[i] && all_main[i]->getBrName(l)!="") return all_main[i]->getBrName(l);
+    }
+    return "";
 }
 
 // int pizzaDataBase::hash(string name, int i) {
