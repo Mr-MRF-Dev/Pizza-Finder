@@ -214,29 +214,19 @@ void Avail_P(KDTree* ap){
 	getch();
 	system("cls");
 
-
-
 }
 
 void Most_Brs(pizzaDataBase* db){
-	string name;
-	cout << Color_Orange << "print most branches\nenter main branch name:" << Color_Reset << endl;
-	cin >> name;
+	cout << Color_Orange << "print most branches" << Color_Reset << endl;
 
 	// return a sorted vector of branches
-	vector<string> tmp = db->getMostBranch(name);
-
-	if (tmp.size() == 0) {
-		cout << " no branch" << endl;
-	}
-
-	else {
-		for (auto i : tmp) {
-			cout << i << endl;
-		}
+	if (!db->getMostBranch()) {
+		cout << "no branch" << endl;
 	}
 
 	cout << endl;
+    cout << Color_Yellow << "\n\npress any key to continue" << endl;
+	getch();
 
 }
 

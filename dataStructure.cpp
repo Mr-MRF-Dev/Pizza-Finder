@@ -158,6 +158,7 @@ bool pizzaDataBase::addNewMainBranch(pizzaMainBranch* pbm) {
     }
 
     all_main[index] = new_main;
+    all_vec.push_back(new_main);
     count++;
 
     return true;
@@ -241,22 +242,15 @@ string pizzaDataBase::getBranchName(Point l) {
     return "";
 }
 
-vector<string> pizzaDataBase::getMostBranch(string name) {
+bool pizzaDataBase::getMostBranch() {
 
+    if (all_vec.size() == 0) return false;
 
-    vector<pair<string, int>> final;
+    string final;
+    mergeSort(&all_vec, 0, all_vec.size() - 1);
 
-    for (int i = 0; i < capacity; i++) {
-        if (all_main[i]) {
-
-            
-
-        }
-    }
-
-
-    return final;
-
+    all_vec[0]->print();
+    return true;
 }
 
 // int pizzaDataBase::hash(string name, int i) {
@@ -288,3 +282,56 @@ vector<string> pizzaDataBase::getMostBranch(string name) {
 //     // double hash.......
 //     return (final_1 + final_2 * i) % capacity;
 // }
+
+void pizzaDataBase::helpMergeSort(vector<branchLinkedList*>* arr, int left,
+                                  int mid, int right) {
+
+    int leftLen = mid - left + 1;
+    int rightLen = right - mid;
+
+    vector<branchLinkedList*> leftVec(leftLen);
+    vector<branchLinkedList*> rightVec(rightLen);
+
+    for (int i = 0; i < leftLen; i++) leftVec[i] = (*arr)[left + i];
+    for (int j = 0; j < rightLen; j++) rightVec[j] = (*arr)[mid + 1 + j];
+
+    auto I_ofLeft = 0, I_ofRight = 0;
+    int insertMaster = left;
+
+    while (I_ofLeft < leftLen && I_ofRight < rightLen) {
+
+        if (leftVec[I_ofLeft]->getCount() >= rightVec[I_ofRight]->getCount()) {
+
+            (*arr)[insertMaster] = leftVec[I_ofLeft];
+            I_ofLeft++;
+        }
+
+        else {
+            (*arr)[insertMaster] = rightVec[I_ofRight];
+            I_ofRight++;
+        }
+
+        insertMaster++;
+    }
+
+    while (I_ofLeft < leftLen) {
+        (*arr)[insertMaster] = leftVec[I_ofLeft];
+        I_ofLeft++;
+        insertMaster++;
+    }
+
+    while (I_ofRight < rightLen) {
+        (*arr)[insertMaster] = rightVec[I_ofRight];
+        I_ofRight++;
+        insertMaster++;
+    }
+}
+
+void pizzaDataBase::mergeSort(vector<branchLinkedList*>* arr, int left,
+                              int right) {
+    if (left >= right) return;
+    int mid = left + (right - left) / 2;
+    mergeSort(arr, left, mid);
+    mergeSort(arr, mid + 1, right);
+    helpMergeSort(arr, left, mid, right);
+}

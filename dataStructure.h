@@ -3,10 +3,12 @@
 #define DATASTRUCTURE_H
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 #include "branchClass.h"
+#include "debug.h"
+
 using namespace std;
 
 class branchLinkedList {
@@ -28,6 +30,7 @@ class branchLinkedList {
 
 class pizzaDataBase {
     private:
+        vector<branchLinkedList*> all_vec;
         branchLinkedList** all_main;
         int count;
         int capacity;
@@ -35,6 +38,10 @@ class pizzaDataBase {
         // int hash(string name, int i);
         int hash(string name);
         branchLinkedList* findBranch(string name);
+
+        void helpMergeSort(vector<branchLinkedList*>* arr, int left, int mid,
+                           int right);
+        void mergeSort(vector<branchLinkedList*>* arr, int left, int right);
 
     public:
         pizzaDataBase(int capacity = 10);
@@ -44,7 +51,7 @@ class pizzaDataBase {
         bool printBranch(string name);
         string getBranchName(Point l);
 
-        vector<string> getMostBranch(string name);
- };
+        bool getMostBranch();
+};
 
 #endif
