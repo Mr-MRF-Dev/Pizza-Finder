@@ -50,6 +50,7 @@ void Add_P(pizzaDataBase* db, KDTree* ap){
 	}
 	else {
 		cout << Color_Red << "\ncouldn't add the main pizza shop: " << Color_Green_Blue << name << "\nlocation: (" << x1 << "," << y1 << ")" << Color_Red << ", a pizza shop with this name already exist" << Color_Yellow << "\n\npress any key to continue" << endl;
+		ap->deleteNode(temp->getPoint());
 		delete temp;
 		getch();
 		system("cls");
@@ -83,6 +84,7 @@ void Add_Br(pizzaDataBase* db, KDTree *ap){
 	}
 	else {
 		cout << Color_Red << "\ncouldn't add the branch pizza shop: " << Color_Green_Blue << name << "\nlocation: (" << x1 << "," << y1 << ")\nmain shop: " << mainName << Color_Red << "\nthere already exist a brach with the same name or there is no main shop with this name at all" << Color_Yellow << "\n\npress any key to continue" << endl;
+		ap->deleteNode(temp->getPoint());
 		delete temp;
 		getch();
 		system("cls");
@@ -98,7 +100,7 @@ void Del_Br(pizzaDataBase* db, KDTree *ap){
 	Point temp(x1, y1);
 	if (db->delBranch(temp)) {
 		//delete the point from ap
-		//ap->deleteNode(ap);
+		ap->deleteNode(temp);
 		cout << Color_Green <<"\nsuccessfully deleted the pizza shop in the location" << Color_Yellow << "\n\npress any key to continue" << endl;
 		getch();
 		system("cls");
