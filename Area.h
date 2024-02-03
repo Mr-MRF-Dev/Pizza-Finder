@@ -17,6 +17,11 @@ class Area {
 		bool operator==(Area tmp);
         bool checkInArea(int x, int y);
         string getName();
+
+        int getMaxX();
+        int getMinX();
+        int getMaxY();
+        int getMinY();
 };
 
 class AreaList {
@@ -29,6 +34,8 @@ class AreaList {
     public:
         AreaList(int c = 10);
         bool addArea(Area a);
+        Area* search(string name);
+
 };
 
 #endif

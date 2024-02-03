@@ -39,6 +39,14 @@ bool Area::checkInArea(int x, int y) {
 
 string Area::getName() { return nameArea; }
 
+int Area::getMaxX() { return max(P1.getX(), P2.getX()); }
+
+int Area::getMinX() { return min(P1.getX(), P2.getX()); }
+
+int Area::getMaxY() { return max(P1.getY(), P2.getY()); }
+
+int Area::getMinY() { return min(P1.getY(), P2.getY()); }
+
 // AreaList Functions
 AreaList::AreaList(int c) {
     capacity = c;
@@ -88,6 +96,18 @@ bool AreaList::addArea(Area a) {
         }
     }
 
-	all[count++] = new_area;
+    all[count++] = new_area;
     return true;
+}
+
+Area *AreaList::search(string name) {
+
+    for (int i = 0; i < count; i++) {
+        if (all[i]->getName() == name) {
+
+            return all[i];
+        }
+    }
+
+    return NULL;
 }
