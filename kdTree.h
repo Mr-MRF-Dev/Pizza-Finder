@@ -70,7 +70,10 @@ class KDTree {
         void helpSearchArea(treeNode* root, vector<branch*>* vec, int depth,
                             int max_x, int min_x, int max_y, int min_y);
 
-        treeNode* helpFindNearstBranch(Point t, treeNode* root, treeNode* near, int depth);
+        treeNode* helpFindNearstBranch(Point t, treeNode* root, treeNode* near,
+                                       int depth);
+
+        int checkOtherBr(Point t, treeNode* root, int depth);
 
     public:
         KDTree();
@@ -80,9 +83,7 @@ class KDTree {
 
         vector<branch*> searchArea(Area* a);
 
-        int checkOtherBr(Point t, treeNode* root, treeNode* near, int depth);
         branch* findNearstBranch(Point t);
-
 };
 
 #endif

@@ -162,7 +162,7 @@ void Near_P(KDTree* ap){
 
 	branch* tmp = ap->findNearstBranch(temp);
 	if(tmp!=NULL){
-		cout << tmp;
+		cout << *tmp;
 	}
 	else{
 		cout << " no branch";
