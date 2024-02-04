@@ -174,7 +174,7 @@ int pizzaDataBase::hash(string name) {
 
         final += key;
 
-        if (final % capacity * 1000 == 0) {
+        if (final / (capacity * 1000) > 1) {
             final /= 2;
         }
     }
