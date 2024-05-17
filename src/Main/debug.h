@@ -8,7 +8,7 @@
 using namespace std;
 
 // enable debug == true
-#define DEBUG true
+#define DEBUG false
 
 #if DEBUG
 
