@@ -41,7 +41,7 @@ bool treeNode::isBalanced() {
     return false;
 }
 
-Point treeNode::getPoint() { return node->getPoint(); }
+Point treeNode::getPoint() const { return node->getPoint(); }
 
 treeNode* treeNode::getLeft() { return left; }
 

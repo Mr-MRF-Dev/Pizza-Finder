@@ -23,7 +23,7 @@ class branch {
         branch(string name, int x, int y);
         branch(string name, Point p);
         string getName();
-        Point getPoint();
+        Point getPoint() const;
         int getType();
 
         virtual string getMainName() = 0;

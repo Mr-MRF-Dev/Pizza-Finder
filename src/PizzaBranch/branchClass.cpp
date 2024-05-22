@@ -14,7 +14,7 @@ branch::branch(string name, Point p) : point(p) {
 
 int branch::getType() { return type; }
 
-Point branch::getPoint() { return point; }
+Point branch::getPoint() const { return point; }
 
 string branch::getName() { return name; }
 

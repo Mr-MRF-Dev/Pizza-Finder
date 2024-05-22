@@ -7,7 +7,7 @@ Point::Point(int x, int y) {
     // log2("Point::Point(x, y)", this->getStr());
 }
 
-Point::Point(Point& tmp) {
+Point::Point(const Point& tmp) {
     x = tmp.x;
     y = tmp.y;
 

@@ -22,7 +22,7 @@ class treeNode {
     public:
         treeNode(branch* node);
         treeNode(treeNode& tmp);
-        Point getPoint();
+        Point getPoint() const;
 
         treeNode* getLeft();
         treeNode* getRight();

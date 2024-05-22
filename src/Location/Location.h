@@ -14,7 +14,7 @@ class Point {
 
     public:
         Point(int x, int y);
-        Point(Point& tmp);
+        Point(const Point& tmp);
 
         int getX();
         int getY();
