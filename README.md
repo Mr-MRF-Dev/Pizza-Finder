@@ -24,6 +24,33 @@ our Project in DS (Data Structure) with C++ Programming Language.
     cd ./Pizza-Finder
     ```
 
+3. Create a build directory
+
+    ```bash
+    mkdir build
+    cd build
+    ```
+
+4. Generate the Makefiles & Build the project
+
+    ```bash
+    cmake ..
+    make
+    ```
+
+    or use [MinGW Makefiles](https://cmake.org/cmake/help/latest/generator/MinGW%20Makefiles.html)
+
+    ```bash
+    cmake .. -G "MinGW Makefiles"
+    mingw32-make
+    ```
+
+5. Run Project!
+
+    ```bash
+    .\Pizza.exe
+    ```
+
 ## 🤝 Contributing
 
 we welcome any contributions you may have. If you're interested in helping out, fork the repository
