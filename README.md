@@ -51,6 +51,16 @@ our Project in DS (Data Structure) with C++ Programming Language.
     .\Pizza.exe
     ```
 
+## ⚙ Run Project in VsCode
+
+1. Install the [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) extension from the VS Code marketplace.
+
+2. Create a CMake Project: Open the Command Palette (`Ctrl+Shift+P`), type `CMake: Quick Start`, and follow the prompts to set up a new project. (I suggest you use the `Create From Compilers`)
+
+3. Configure the Project: Open the Command Palette (Ctrl+Shift+P), type CMake: Configure, and select it.
+
+4. Run and Debug: Use the Command Palette to select `CMake: Debug` to start debugging. or select `CMake: Run Without Debugging`.
+
 ## 🤝 Contributing
 
 we welcome any contributions you may have. If you're interested in helping out, fork the repository
