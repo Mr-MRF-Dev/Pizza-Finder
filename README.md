@@ -4,6 +4,8 @@ our Project in DS (Data Structure) with C++ Programming Language.
 
 ![Screenshot](/images/screenshot.jpg)
 
+In the project, we utilized a [KD-Tree](https://www.baeldung.com/cs/k-d-trees), one of the Multidimensional trees.
+
 ## 📥 Getting Started
 
 1. Clone the Repository
@@ -62,6 +64,23 @@ our Project in DS (Data Structure) with C++ Programming Language.
 3. Configure the Project: Open the Command Palette (Ctrl+Shift+P), type CMake: Configure, and select it.
 
 4. Run and Debug: Use the Command Palette to select `CMake: Debug` to start debugging. or select `CMake: Run Without Debugging`.
+
+## 📝 Request for Proposal ( [RFP](https://en.wikipedia.org/wiki/Request_for_proposal) )
+
+A simple RFP for this project.
+
+   1. `Add Area` : Add a new area.
+   2. `Add Pizza Shop` : Add a new main pizza shop.
+   3. `Add Branch` : Add a new branch to a pizza shop.
+   4. `Delete Branch` : Remove a branch from a pizza shop.
+   5. `List Pizza Shops` : List pizza shops in a neighborhood.
+   6. `List Branches` : List branches of a pizza shop.
+   7. `Find Nearest Pizza Shop` : Locate the nearest pizza shop.
+   8. `Find Nearest Branch` : Locate the nearest branch of a pizza shop.
+   9. `List Available Pizza Shops` : List pizza shops in an area.
+   10. `Most Branches` : Identify the pizza shop with the most branches.
+   11. `Undo Orders` : Undo selected orders.
+   12. `Exit` : Quit the program
 
 ## 🤝 Contributing
 
