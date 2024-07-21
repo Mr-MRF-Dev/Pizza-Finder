@@ -2,6 +2,8 @@
 
 our Project in DS (Data Structure) with C++ Programming Language.
 
+![Screenshot](/images/screenshot.jpg)
+
 ## 📥 Getting Started
 
 1. Clone the Repository
