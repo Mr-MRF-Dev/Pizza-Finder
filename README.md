@@ -1,4 +1,4 @@
-# Pizza-Finder
+# 🍕 Pizza-Finder
 
 a console-based program for efficiently finding the nearest pizza shop or a specific pizza shop using [KD-Tree](https://www.baeldung.com/cs/k-d-trees).
 
