@@ -35,7 +35,7 @@ our Project in DS (Data Structure) with C++ Programming Language.
     cd build
     ```
 
-4. Generate the Makefiles & Build the project
+4. Generate the Makefiles & Build the project (With [Cmake](https://cmake.org/download/))
 
     ```bash
     cmake ..
