@@ -5,6 +5,7 @@
 #ifdef _WIN32
     #include <conio.h>
     #define SYS_CLEAR() system("cls")
+    #define getch() _getch()
 #else
     #include <termios.h>
     #include <unistd.h>
