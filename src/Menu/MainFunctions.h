@@ -6,8 +6,19 @@
     #include <conio.h>
     #define SYS_CLEAR system("cls")
 #else
+    #include <ncurses.h>
+
     #include <cstdlib>
     #define SYS_CLEAR system("clear")
+
+int getch() {
+    initscr();
+    cbreak();
+    noecho();
+    int ch = getch();
+    endwin();
+    return ch;
+}
 #endif
 
 #include <iostream>
