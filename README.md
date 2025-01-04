@@ -1,10 +1,12 @@
 # 🍕 Pizza-Finder
 
+[![CMake on multiple platforms](https://github.com/Mr-MRF-Dev/Pizza-Finder/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/Mr-MRF-Dev/Pizza-Finder/actions/workflows/cmake-multi-platform.yml)
+
 a console-based program for efficiently finding the nearest pizza shop or a specific pizza shop using [KD-Tree](https://www.baeldung.com/cs/k-d-trees).
 
 ![Screenshot](/images/screenshot.jpg)
 
-our Project in DS (Data Structure) with C++ Programming Language.
+Our project in DS (Data Structure) with C++ programming language.
 
 ## 📥 Getting Started
 
