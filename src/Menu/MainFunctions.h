@@ -9,6 +9,7 @@
     #include <termios.h>
     #include <unistd.h>
 
+    #include <cstdio>
     #include <cstdlib>
     #define SYS_CLEAR() system("clear")
 
