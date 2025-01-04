@@ -4,13 +4,13 @@
 
 #ifdef _WIN32
     #include <conio.h>
-    #define SYS_CLEAR system("cls")
+    #define SYS_CLEAR() system("cls")
 #else
     #include <termios.h>
     #include <unistd.h>
 
     #include <cstdlib>
-    #define SYS_CLEAR system("clear")
+    #define SYS_CLEAR() system("clear")
 
 int getch() {
     struct termios oldt, newt;
