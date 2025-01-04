@@ -12,6 +12,8 @@ using namespace std;
 #include "dataStructure.h"
 #include "kdTree.h"
 
+#define SYS_CLEAR system("clear")
+
 void Add_N(AreaList* l);
 void Add_P(pizzaDataBase* db, KDTree* ap);
 void Add_Br(pizzaDataBase* db, KDTree* ap);
