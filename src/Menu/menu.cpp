@@ -19,56 +19,56 @@ void mainMenu(pizzaDataBase* db, AreaList* l, KDTree* ap){
     cout << Color_Yellow_Dark << "---------------------------------------------------------" << Color_Reset << endl;
     cin >> act;
     if (act == "1" || act == "Add-N" || act == "add-n") {
-            system("cls");
+            SYS_CLEAR;
             Add_N(l);
         } 
         else if (act == "2" || act == "Add-P" || act == "add-p") {
-            system("cls");
+            SYS_CLEAR;
             Add_P(db,ap);
         }
         else if (act == "3" || act == "Add-Br" || act == "add-br") {
-            system("cls");
+            SYS_CLEAR;
             Add_Br(db,ap);
         } 
         else if (act == "4" || act == "Del-Br" || act == "del-br") {
-            system("cls");
+            SYS_CLEAR;
             Del_Br(db,ap);
         } 
         else if (act == "5" || act == "List-P" || act == "list-p") {
-            system("cls");
+            SYS_CLEAR;
             List_P(ap, l);
         } 
         else if (act == "6" || act == "List-Brs" || act == "list-brs") {
-            system("cls");
+            SYS_CLEAR;
             List_Brs(db);
         } 
         else if (act == "7" || act == "Near-P" || act == "near-p") {
-            system("cls");
+            SYS_CLEAR;
             Near_P(ap);
         } 
         else if (act == "8" || act == "Near-Br" || act == "near-br") {
-            system("cls");
+            SYS_CLEAR;
             Near_Br(ap, db);
         }
         else if (act == "9" || act == "Avail-P" || act == "avail-p") {
-            system("cls");
+            SYS_CLEAR;
             Avail_P(ap);
         } 
         else if (act == "10" || act == "Most-Brs" || act == "most-brs") {
-            system("cls");
+            SYS_CLEAR;
             Most_Brs(db);
         } else if (act == "11" || act == "Undo" || act == "undo") {
-            system("cls");
+            SYS_CLEAR;
             cout << "12\n" << endl;
         } 
         else if (act == "0" || act == "Exit" || act == "exit") {
-            system("cls");
+            SYS_CLEAR;
             cout << Color_Deep_Pink <<"program ended, press any key to close the program\n" << endl;
             getch();
             cout << Color_Reset << endl;
             break;
         } else {
-            system("cls");
+            SYS_CLEAR;
             cout << Color_Red << "please enter a valid option\n" << endl;
         }
     }
