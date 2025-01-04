@@ -2,17 +2,22 @@
 #ifndef MAINFUNCTIONS_H
 #define MAINFUNCTIONS_H
 
-#include <conio.h>
+#ifdef _WIN32
+    #include <conio.h>
+    #define SYS_CLEAR system("cls")
+#else
+    #include <cstdlib>
+    #define SYS_CLEAR system("clear")
+#endif
 
 #include <iostream>
 using namespace std;
+
 #include "Area.h"
 #include "branchClass.h"
 #include "color.h"
 #include "dataStructure.h"
 #include "kdTree.h"
-
-#define SYS_CLEAR system("clear")
 
 void Add_N(AreaList* l);
 void Add_P(pizzaDataBase* db, KDTree* ap);
