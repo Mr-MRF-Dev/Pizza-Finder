@@ -6,17 +6,21 @@
     #include <conio.h>
     #define SYS_CLEAR system("cls")
 #else
-    #include <ncurses.h>
+    #include <termios.h>
+    #include <unistd.h>
 
     #include <cstdlib>
     #define SYS_CLEAR system("clear")
 
 int getch() {
-    initscr();
-    cbreak();
-    noecho();
-    int ch = getch();
-    endwin();
+    struct termios oldt, newt;
+    int ch;
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    ch = getchar();
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
     return ch;
 }
 #endif
