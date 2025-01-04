@@ -13,7 +13,7 @@
     #include <cstdlib>
     #define SYS_CLEAR() system("clear")
 
-int getch() {
+inline int getch() {
     struct termios oldt, newt;
     int ch;
     tcgetattr(STDIN_FILENO, &oldt);
