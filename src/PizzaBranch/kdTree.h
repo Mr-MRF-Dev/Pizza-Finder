@@ -72,13 +72,15 @@ class KDTree {
 
         treeNode* helpFindNearstBranch(Point t, treeNode* root, treeNode* near,
                                        int depth);
-       
-        treeNode* helpFindNearstBranchFilter(Point t, treeNode* root, treeNode* near,
-                                       int depth, string name);
+
+        treeNode* helpFindNearstBranchFilter(Point t, treeNode* root,
+                                             treeNode* near, int depth,
+                                             string name);
 
         int checkOtherBr(Point t, treeNode* root, int depth);
 
-        void helpFindInRadius(Point t, int r, treeNode* root, int depth, vector<branch*>* vec);
+        void helpFindInRadius(Point t, int r, treeNode* root, int depth,
+                              vector<branch*>* vec);
 
     public:
         KDTree();

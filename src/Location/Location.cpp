@@ -43,5 +43,5 @@ string Point::getStr() {
 }
 
 int Point::getDistance(Point temp) {
-    return pow((x - temp.getX()) , 2) + pow((y - temp.getY()) , 2);
+    return pow((x - temp.getX()), 2) + pow((y - temp.getY()), 2);
 }

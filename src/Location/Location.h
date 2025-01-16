@@ -2,8 +2,9 @@
 #ifndef LOCATION_H
 #define LOCATION_H
 
-#include <string>
 #include <cmath>
+#include <string>
+
 #include "debug.h"
 using namespace std;
 

@@ -2,7 +2,7 @@
 
 int main() {
 
-    // create a db for Branchs
+    // create a db for Branch's
     pizzaDataBase* db = new pizzaDataBase;
     AreaList* l = new AreaList;
     KDTree* ap = new KDTree;

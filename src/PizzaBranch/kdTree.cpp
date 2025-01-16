@@ -631,22 +631,21 @@ branch* KDTree::findNearstBranchFilter(Point t, string main_name) {
     return NULL;
 }
 
-void KDTree::helpFindInRadius(Point t, int r, treeNode* root, int depth, vector<branch*>* vec) {
+void KDTree::helpFindInRadius(Point t, int r, treeNode* root, int depth,
+                              vector<branch*>* vec) {
 
     if (root == NULL) return;
 
-    if (t.getDistance(root->getPoint()) <= pow(r,2)){
+    if (t.getDistance(root->getPoint()) <= pow(r, 2)) {
         vec->push_back(root->getNode());
     }
 
     int root_x = root->getPoint().getX();
     int root_y = root->getPoint().getY();
 
-
     helpFindInRadius(t, r, root->getLeft(), ++depth, vec);
 
     helpFindInRadius(t, r, root->getRight(), ++depth, vec);
- 
 }
 
 vector<branch*> KDTree::findInRadius(Point t, int r) {
