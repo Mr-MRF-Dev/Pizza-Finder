@@ -1,6 +1,8 @@
 # 🍕 Pizza-Finder
 
+![GitHub repo size](https://img.shields.io/github/repo-size/mr-mrf-dev/Pizza-Finder)
 [![CMake on multiple platforms](https://github.com/Mr-MRF-Dev/Pizza-Finder/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/Mr-MRF-Dev/Pizza-Finder/actions/workflows/cmake-multi-platform.yml)
+[![GitHub License](https://img.shields.io/github/license/mr-mrf-dev/Pizza-Finder)](/LICENSE)
 
 a console-based program for efficiently finding the nearest pizza shop or a specific pizza shop using [KD-Tree](https://www.baeldung.com/cs/k-d-trees).
 
